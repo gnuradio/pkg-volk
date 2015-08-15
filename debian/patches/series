@@ -1,3 +1,4 @@
+reproducible-build-with-source-date-epoch
 native-armv7-build-support
 debian-libver
 0001-kernels-add-missing-include-arm_neon.h.patch

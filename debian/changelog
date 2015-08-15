@@ -1,3 +1,12 @@
+volk (1.0.2-2) unstable; urgency=low
+
+  * Use SOURCE_DATE_EPOCH from the environment, if defined,
+    rather than current date and time to implement volk_build_date()
+    (embedding build date in a library does not help reproducible builds)
+  * add watch file
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sat, 15 Aug 2015 17:43:15 -0400
+
 volk (1.0.2-1) unstable; urgency=medium
 
   * Maintenance release 24 Jul 2015 by Nathan West
