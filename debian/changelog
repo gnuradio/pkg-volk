@@ -1,0 +1,147 @@
+volk (1.0.1-1) unstable; urgency=low
+
+  * Maintenance Release v1.0.1 08 Jul 2015 by Nathan West
+    This is a maintenance release with bug fixes since the initial release of
+    v1.0 in April.
+    
+  * Contributors
+   
+    The following authors have contributed code to this release:
+    
+    Doug Geiger doug.geiger@bioradiation.net
+    Elliot Briggs elliot.briggs@gmail.com
+    Marcus Mueller marcus@hostalia.de
+    Nathan West nathan.west@okstate.edu
+    Tom Rondeau tom@trondeau.com
+   
+  * Kernels
+   
+    Several bug fixes in different kernels. The NEON implementations of the
+    following kernels have been fixed:
+   
+      32f_x2_add_32f
+      32f_x2_dot_prod_32f
+      32fc_s32fc_multiply_32fc
+      32fc_x2_multiply_32fc
+   
+   Additionally the NEON asm based 32f_x2_add_32f protokernels were not being
+   used and are now included and available for use via the dispatcher.
+   
+   The 32f_s32f_x2_fm_detect_32f kernel now has a puppet. This solves QA seg
+   faults on 32-bit machines and provide a better test for this kernel.
+   
+   The 32fc_s32fc_x2_rotator_32fc generic protokernel replaced cabsf with
+   hypotf for better Android support.
+
+  * Building
+   
+    Static builds now trigger the applications (volk_profile and
+    volk-config-info) to be statically linked.
+    
+    The file gcc_x86_cpuid.h has been removed since it was no longer being
+    used. Previously it provided cpuid functionality for ancient compilers
+    that we do not support.
+    
+    All build types now use -Wall.
+
+  * QA and Testing
+   
+   The documentation around the --update option to volk_profile now makes it
+   clear that the option will only profile kernels without entries in
+   volk_profile. The signature of run_volk_tests with expanded args changed
+   signed types to unsigned types to reflect the actual input.
+   
+   The remaining changes are all non-functional changes to address issues
+   from Coverity.
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Fri, 10 Jul 2015 17:57:42 -0400
+
+volk (1.0-5) unstable; urgency=medium
+
+  * native-armv7-build-support skips neon on Debian armel (Closes: #789972)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sat, 04 Jul 2015 12:36:36 -0400
+
+volk (1.0-4) unstable; urgency=low
+
+  * update native-armv7-build-support patch from gnuradio volk package
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Thu, 25 Jun 2015 16:38:49 -0400
+
+volk (1.0-3) unstable; urgency=medium
+
+  * Add Breaks/Replaces (Closes: #789893, #789894)
+  * Allow failing tests
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Thu, 25 Jun 2015 12:46:06 -0400
+
+volk (1.0-2) unstable; urgency=medium
+
+  * kernels-add-missing-math.h-include-to-rotator
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Wed, 24 Jun 2015 21:09:32 -0400
+
+volk (1.0-1) unstable; urgency=low
+
+  * Initial package (Closes: #782417)
+  Initial Release 11 Apr 2015 by Nathan West
+  
+  VOLK 1.0 is available. This is the first release of VOLK as an independently
+  tracked sub-project of GNU Radio.
+
+  * Contributors
+  
+  VOLK has been tracked separately from GNU Radio since 2014 Dec 23.
+  Contributors between the split and the initial release are
+
+  Albert Holguin aholguin_77@yahoo.com
+  Doug Geiger doug.geiger@bioradiation.net
+  Elliot Briggs elliot.briggs@gmail.com
+  Julien Olivain julien.olivain@lsv.ens-cachan.fr
+  Michael Dickens michael.dickens@ettus.com
+  Nathan West nathan.west@okstate.edu
+  Tom Rondeau tom@trondeau.com
+  
+  * QA
+  
+  The test and profiler have significantly changed. The profiler supports
+  run-time changes to vlen and iters to help kernel development and provide
+  more flexibility on embedded systems. Additionally there is a new option
+  to update an existing volk_profile results file with only new kernels which
+  will save time when updating to newer versions of VOLK
+  
+  The QA system creates a static list of kernels and test cases. The QA
+  testing and profiler iterate over this static list rather than each source
+  file keeping its own list. The QA also emits XML results to
+  lib/.unittest/kernels.xml which is formatted similarly to JUnit results.
+  
+  * Modtool
+  
+  Modtool was updated to support the QA and profiler changes.
+
+  * Kernels
+  
+  New proto-kernels:
+  
+  16ic_deinterleave_real_8i_neon
+  16ic_s32f_deinterleave_32f_neon
+  fix preprocessor errors for some compilers on byteswap and popcount puppets
+  
+  ORC was moved to the asm kernels directory.
+  volk_malloc
+  
+  The posix_memalign implementation of Volk_malloc now falls back to a standard
+  malloc if alignment is 1.
+  
+  * Miscellaneous
+  
+  Several build system and cmake changes have made it possible to build VOLK
+  both independently with proper soname versions and in-tree for projects
+  such as GNU Radio.
+  
+  The static builds take advantage of cmake object libraries to speed up builds.
+  
+  Finally, there are a number of changes to satisfy compiler warnings and make
+  QA work on multiple machines.
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sun, 12 Apr 2015 23:20:41 -0400
