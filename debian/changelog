@@ -1,3 +1,22 @@
+volk (1.0.2-1) unstable; urgency=medium
+
+  * Maintenance release 24 Jul 2015 by Nathan West
+  * The major change is the CMake logic to add ASM protokernels. Rather
+    than depending on CFLAGS and ASMFLAGS we use the results of VOLK's
+    built in has_ARCH tests. All configurations should work the same as
+    before, but manually specifying CFLAGS and ASMFLAGS on the cmake call
+    for ARM native builds should no longer be necessary.
+  * The 32fc_s32fc_x2_rotator_32fc generic protokernel now includes a
+    previously implied header.
+  * Finally, there is a fix to return the "best" protokernel to the
+    dispatcher when no volk_config exists. Thanks to Alexandre Raymond for
+    pointing this out.
+  * with maint branch patch:
+      kernels-add-missing-include-arm_neon.h
+  * removed unused build-dependency on liboil0.3-dev (closes: #793626)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Wed, 05 Aug 2015 00:43:40 -0400
+
 volk (1.0.1-1) unstable; urgency=low
 
   * Maintenance Release v1.0.1 08 Jul 2015 by Nathan West

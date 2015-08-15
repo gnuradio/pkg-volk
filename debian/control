@@ -5,7 +5,7 @@ Maintainer: A. Maitland Bottoms <bottoms@debian.org>
 Build-Depends: debhelper (>= 9.0.0~), cmake, pkg-config, doxygen, dh-acc,
  libboost-filesystem-dev, libboost-system-dev,
  libboost-test-dev, libboost-program-options-dev,
- liborc-0.4-dev, liboil0.3-dev, python, python-cheetah, dh-python
+ liborc-0.4-dev, python, python-cheetah, dh-python
 Standards-Version: 3.9.6
 Homepage: http://libvolk.org
 Vcs-Git: git://anonscm.debian.org/users/bottoms/pkg-volk.git

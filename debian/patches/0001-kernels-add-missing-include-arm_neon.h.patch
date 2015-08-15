@@ -1,0 +1,40 @@
+From 44a98e84e9dd3fc07548541f14faa8887deb8ce1 Mon Sep 17 00:00:00 2001
+From: Nathan West <nathan.west@okstate.edu>
+Date: Wed, 29 Jul 2015 23:33:57 -0400
+Subject: [PATCH] kernels: add missing include arm_neon.h
+
+Add missing #include arm_neon.h to 16i_s32f_convert_32f and
+16ic_s32f_deinterleave_32f_x2. This addresses GH #35.
+---
+ kernels/volk/volk_16i_s32f_convert_32f.h          | 1 +
+ kernels/volk/volk_16ic_s32f_deinterleave_32f_x2.h | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/kernels/volk/volk_16i_s32f_convert_32f.h b/kernels/volk/volk_16i_s32f_convert_32f.h
+index 0adb0cc..67c615c 100644
+--- a/kernels/volk/volk_16i_s32f_convert_32f.h
++++ b/kernels/volk/volk_16i_s32f_convert_32f.h
+@@ -209,6 +209,7 @@ volk_16i_s32f_convert_32f_generic(float* outputVector, const int16_t* inputVecto
+ #endif /* LV_HAVE_GENERIC */
+ 
+ #ifdef LV_HAVE_NEON
++#include <arm_neon.h>
+ 
+ static inline void
+ volk_16i_s32f_convert_32f_neon(float* outputVector, const int16_t* inputVector,
+diff --git a/kernels/volk/volk_16ic_s32f_deinterleave_32f_x2.h b/kernels/volk/volk_16ic_s32f_deinterleave_32f_x2.h
+index be1873a..7f8cd9b 100644
+--- a/kernels/volk/volk_16ic_s32f_deinterleave_32f_x2.h
++++ b/kernels/volk/volk_16ic_s32f_deinterleave_32f_x2.h
+@@ -138,7 +138,7 @@ volk_16ic_s32f_deinterleave_32f_x2_generic(float* iBuffer, float* qBuffer, const
+ #endif /* LV_HAVE_GENERIC */
+ 
+ #ifdef LV_HAVE_NEON
+-
++#include <arm_neon.h>
+ static inline void
+ volk_16ic_s32f_deinterleave_32f_x2_neon(float* iBuffer, float* qBuffer, const lv_16sc_t* complexVector,
+                                         const float scalar, unsigned int num_points)
+-- 
+2.1.4
+
