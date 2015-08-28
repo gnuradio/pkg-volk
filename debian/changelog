@@ -1,3 +1,28 @@
+volk (1.1-1) unstable; urgency=medium
+
+  * re-organize package naming convention
+  * New upstream release tag v1.1
+  New architectures exist for the AVX2 and FMA ISAs. Along
+  with the build-system support the following kernels have
+  no proto-kernels taking advantage of these architectures:
+  
+  * 32f_x2_dot_prod_32f
+  * 32fc_x2_multiply_32fc
+  * 64_byteswap
+  * 32f_binary_slicer_8i
+  * 16u_byteswap
+  * 32u_byteswap
+  
+  QA/profiler
+  -----------
+  
+  The profiler now generates buffers that are vlen + a tiny
+  amount and generates random data to fill buffers. This is
+  intended to catch bugs in protokernels that write beyond
+  num_points.
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Wed, 26 Aug 2015 09:22:48 -0400
+
 volk (1.0.2-2) unstable; urgency=low
 
   * Use SOURCE_DATE_EPOCH from the environment, if defined,
