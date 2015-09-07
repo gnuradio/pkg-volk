@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <descriptor>
 
-<version>
-1.0
-</version>
-
 <headers>
-debian/tmp/usr/include/
+debian/libvolk1-dev/usr/include/
 </headers>
 
 <libs>
-debian/tmp/usr/lib/*/
+debian/libvolk1.1/usr/lib/
 </libs>
 
 </descriptor>

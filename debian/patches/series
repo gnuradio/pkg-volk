@@ -1,3 +1,4 @@
+0002-Fixes-Coverity-Defect-1293620-Buffer-Overrun-in-volk.patch
 reproducible-build-with-source-date-epoch
 native-armv7-build-support
 debian-libver

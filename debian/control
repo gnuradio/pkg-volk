@@ -2,10 +2,19 @@ Source: volk
 Section: libdevel
 Priority: extra
 Maintainer: A. Maitland Bottoms <bottoms@debian.org>
-Build-Depends: debhelper (>= 9.0.0~), cmake, pkg-config, doxygen, dh-acc,
- libboost-filesystem-dev, libboost-system-dev,
- libboost-test-dev, libboost-program-options-dev,
- liborc-0.4-dev, python, python-cheetah, dh-python
+Build-Depends: cmake,
+               debhelper (>= 9.0.0~),
+               dh-acc,
+               dh-python,
+               doxygen,
+               libboost-filesystem-dev,
+               libboost-program-options-dev,
+               libboost-system-dev,
+               libboost-test-dev,
+               liborc-0.4-dev,
+               pkg-config,
+               python,
+               python-cheetah
 Standards-Version: 3.9.6
 Homepage: http://libvolk.org
 Vcs-Git: git://anonscm.debian.org/users/bottoms/pkg-volk.git
@@ -15,7 +24,7 @@ Package: libvolk1.1
 Section: libs
 Architecture: any
 Pre-Depends: multiarch-support
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Multi-Arch: same
 Recommends: libvolk1-bin
 Suggests: libvolk1-dev
@@ -29,8 +38,8 @@ Package: libvolk1-dev
 Section: libdevel
 Architecture: any
 Pre-Depends: multiarch-support
-Depends: ${misc:Depends}, libvolk1.1 (=${binary:Version})
-Breaks: libvolk-dev, libvolk1.0-dev, gnuradio-dev (<<3.7)
+Depends: libvolk1.1 (=${binary:Version}), ${misc:Depends}
+Breaks: gnuradio-dev (<<3.7), libvolk-dev, libvolk1.0-dev
 Replaces: libvolk-dev, libvolk1.0-dev
 Description: vector optimized function headers
  Vector-Optimized Library of Kernels is designed to help
@@ -45,8 +54,10 @@ Package: libvolk1-bin
 Section: libs
 Architecture: any
 Pre-Depends: multiarch-support
-Depends: ${python:Depends}, ${shlibs:Depends}, ${misc:Depends},
- libvolk1.1 (=${binary:Version})
+Depends: libvolk1.1 (=${binary:Version}),
+         ${misc:Depends},
+         ${python:Depends},
+         ${shlibs:Depends}
 Breaks: libvolk-bin, libvolk1.0-bin
 Replaces: libvolk-bin, libvolk1.0-bin
 Description: vector optimized runtime tools

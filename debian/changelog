@@ -1,3 +1,9 @@
+volk (1.1-2) unstable; urgency=low
+
+  * use dh-acc
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Mon, 07 Sep 2015 15:45:20 -0400
+
 volk (1.1-1) unstable; urgency=medium
 
   * re-organize package naming convention

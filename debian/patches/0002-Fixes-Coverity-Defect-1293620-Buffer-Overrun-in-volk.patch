@@ -1,0 +1,37 @@
+From 84e08eb9ac086f96e52391be87b20595d0a6e5e9 Mon Sep 17 00:00:00 2001
+From: Ben Hilburn <ben.hilburn@ettus.com>
+Date: Fri, 28 Aug 2015 11:51:39 -0700
+Subject: [PATCH 2/2] Fixes Coverity Defect: 1293620 - Buffer Overrun in
+ `volk_profile.cc`
+
+The issue here is that `buffer` was 128 characters long, and `found` was getting
+set to `128` in some cases, which was then used to index `buffer` to set a NULL
+character. Since `found` is actually an index, it has been set to `127` in the
+maximum scenario, and where `found` is used as a size it is incremented by one.
+---
+ apps/volk_profile.cc | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/apps/volk_profile.cc b/apps/volk_profile.cc
+index 25e416b..2e7ad25 100644
+--- a/apps/volk_profile.cc
++++ b/apps/volk_profile.cc
+@@ -229,12 +229,12 @@ void read_results(std::vector<volk_test_results_t> *results)
+                 // a length restricted by volk/volk_prefs.c
+                 // on the last token in the parsed string we won't find a space
+                 // so make sure we copy at most 128 chars.
+-                if(found > 128) {
+-                    found = 128;
++                if(found > 127) {
++                    found = 127;
+                 }
+                 str_size = config_str.size();
+                 char buffer[128];
+-                config_str.copy(buffer, found, 0);
++                config_str.copy(buffer, found + 1, 0);
+                 buffer[found] = '\0';
+                 single_kernel_result.push_back(std::string(buffer));
+                 config_str.erase(0, found+1);
+-- 
+2.1.4
+
