@@ -1,7 +1,7 @@
 From 84e08eb9ac086f96e52391be87b20595d0a6e5e9 Mon Sep 17 00:00:00 2001
 From: Ben Hilburn <ben.hilburn@ettus.com>
 Date: Fri, 28 Aug 2015 11:51:39 -0700
-Subject: [PATCH 2/2] Fixes Coverity Defect: 1293620 - Buffer Overrun in
+Subject: [PATCH 02/11] Fixes Coverity Defect: 1293620 - Buffer Overrun in
  `volk_profile.cc`
 
 The issue here is that `buffer` was 128 characters long, and `found` was getting

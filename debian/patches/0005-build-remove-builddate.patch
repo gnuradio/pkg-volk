@@ -1,0 +1,84 @@
+From c2acfd6ba4e0c46ea6e5d8bd278e59a049e5b031 Mon Sep 17 00:00:00 2001
+From: Pascal Giard <pascal.giard@lacime.etsmtl.ca>
+Date: Fri, 28 Aug 2015 10:21:50 -0400
+Subject: [PATCH 05/11] build: remove builddate
+
+Make builds reproducible by getting rid of the builddate. No one uses the
+builddate anyway.
+---
+ apps/volk-config-info.cc | 4 ----
+ include/volk/constants.h | 1 -
+ lib/CMakeLists.txt       | 5 -----
+ lib/constants.c.in       | 6 ------
+ 4 files changed, 16 deletions(-)
+
+diff --git a/apps/volk-config-info.cc b/apps/volk-config-info.cc
+index 11011d2..4014855 100644
+--- a/apps/volk-config-info.cc
++++ b/apps/volk-config-info.cc
+@@ -40,7 +40,6 @@ main(int argc, char **argv)
+   desc.add_options()
+     ("help,h", "print help message")
+     ("prefix", "print VOLK installation prefix")
+-    ("builddate", "print VOLK build date (RFC2822 format)")
+     ("cc", "print VOLK C compiler version")
+     ("cflags", "print VOLK CFLAGS")
+     ("all-machines", "print VOLK machines built into library")
+@@ -67,9 +66,6 @@ main(int argc, char **argv)
+   if(vm.count("prefix"))
+     std::cout << volk_prefix() << std::endl;
+ 
+-  if(vm.count("builddate"))
+-    std::cout << volk_build_date() << std::endl;
+-
+   if(vm.count("version"))
+     std::cout << volk_version() << std::endl;
+ 
+diff --git a/include/volk/constants.h b/include/volk/constants.h
+index bac0e36..78ef8f3 100644
+--- a/include/volk/constants.h
++++ b/include/volk/constants.h
+@@ -28,7 +28,6 @@
+ __VOLK_DECL_BEGIN
+ 
+ VOLK_API char* volk_prefix();
+-VOLK_API char* volk_build_date();
+ VOLK_API char* volk_version();
+ VOLK_API char* volk_c_compiler();
+ VOLK_API char* volk_compiler_flags();
+diff --git a/lib/CMakeLists.txt b/lib/CMakeLists.txt
+index 4c86272..a42fcb9 100644
+--- a/lib/CMakeLists.txt
++++ b/lib/CMakeLists.txt
+@@ -469,11 +469,6 @@ endif()
+ # Handle the generated constants
+ ########################################################################
+ 
+-execute_process(COMMAND ${PYTHON_EXECUTABLE} -c
+-    "import time;print time.strftime('%a, %d %b %Y %H:%M:%S', time.gmtime())"
+-    OUTPUT_VARIABLE BUILD_DATE OUTPUT_STRIP_TRAILING_WHITESPACE
+-)
+-message(STATUS "Loading build date ${BUILD_DATE} into constants...")
+ message(STATUS "Loading version ${VERSION} into constants...")
+ 
+ #double escape for windows backslash path separators
+diff --git a/lib/constants.c.in b/lib/constants.c.in
+index 8205bfc..3839f53 100644
+--- a/lib/constants.c.in
++++ b/lib/constants.c.in
+@@ -33,12 +33,6 @@ volk_prefix()
+ }
+ 
+ char*
+-volk_build_date()
+-{
+-  return "@BUILD_DATE@";
+-}
+-
+-char*
+ volk_version()
+ {
+   return "@VERSION@";
+-- 
+2.1.4
+

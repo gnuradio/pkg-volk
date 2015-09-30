@@ -1,0 +1,45 @@
+From b92fe802b85e46aea5b708bf61e2ff458dda0954 Mon Sep 17 00:00:00 2001
+From: Ben Hilburn <ben.hilburn@ettus.com>
+Date: Fri, 28 Aug 2015 19:33:40 -0700
+Subject: [PATCH 03/11] Fixes Cov Defect 1311671: Dereference before NULL
+ check.
+
+This was an unnecessary, but completely harmless, NULL check of a pointer. The
+NULL check doesn't serve any purpose since the pointer is repeatedly
+dereferenced in all code paths prior to the check, and the beginning of the
+function guarantees that data exists at that address. Removing the check to
+reduce complexity and make Coverity happy.
+---
+ lib/qa_utils.cc | 15 +++++++--------
+ 1 file changed, 7 insertions(+), 8 deletions(-)
+
+diff --git a/lib/qa_utils.cc b/lib/qa_utils.cc
+index 1ae4534..ae75a5f 100644
+--- a/lib/qa_utils.cc
++++ b/lib/qa_utils.cc
+@@ -571,15 +571,14 @@ bool run_volk_tests(volk_func_desc_t desc,
+ 
+     std::cout << "Best aligned arch: " << best_arch_a << std::endl;
+     std::cout << "Best unaligned arch: " << best_arch_u << std::endl;
+-    if(results) {
+-        if(puppet_master_name == "NULL") {
+-            results->back().config_name = name;
+-        } else {
+-            results->back().config_name = puppet_master_name;
+-        }
+-        results->back().best_arch_a = best_arch_a;
+-        results->back().best_arch_u = best_arch_u;
++
++    if(puppet_master_name == "NULL") {
++        results->back().config_name = name;
++    } else {
++        results->back().config_name = puppet_master_name;
+     }
++    results->back().best_arch_a = best_arch_a;
++    results->back().best_arch_u = best_arch_u;
+ 
+     return fail_global;
+ }
+-- 
+2.1.4
+

@@ -1,0 +1,25 @@
+From 264addcc43db0669ecbd0cb1ab963c58617b6e6c Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Marcus=20M=C3=BCller?= <marcus@hostalia.de>
+Date: Wed, 15 Apr 2015 17:43:02 +0200
+Subject: [PATCH 11/11] minifix: int counter=0; for(counter=0;... is redundant
+
+---
+ kernels/volk/volk_32f_null_32f.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/kernels/volk/volk_32f_null_32f.h b/kernels/volk/volk_32f_null_32f.h
+index dc73ed7..95e8d1a 100644
+--- a/kernels/volk/volk_32f_null_32f.h
++++ b/kernels/volk/volk_32f_null_32f.h
+@@ -34,7 +34,7 @@ volk_32f_null_32f_generic(float* bVector, const float* aVector, unsigned int num
+ {
+   float* bPtr = bVector;
+   const float* aPtr = aVector;
+-  unsigned int number = 0;
++  unsigned int number;
+ 
+   for(number = 0; number < num_points; number++){
+     *bPtr++ = *aPtr++;
+-- 
+2.1.4
+

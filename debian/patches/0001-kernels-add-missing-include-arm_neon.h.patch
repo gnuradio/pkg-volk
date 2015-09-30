@@ -1,7 +1,7 @@
 From 44a98e84e9dd3fc07548541f14faa8887deb8ce1 Mon Sep 17 00:00:00 2001
 From: Nathan West <nathan.west@okstate.edu>
 Date: Wed, 29 Jul 2015 23:33:57 -0400
-Subject: [PATCH 1/2] kernels: add missing include arm_neon.h
+Subject: [PATCH 01/11] kernels: add missing include arm_neon.h
 
 Add missing #include arm_neon.h to 16i_s32f_convert_32f and
 16ic_s32f_deinterleave_32f_x2. This addresses GH #35.

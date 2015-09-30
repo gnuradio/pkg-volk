@@ -1,0 +1,31 @@
+From 8692c6079f75e7856b776d96b9478a7890a013e8 Mon Sep 17 00:00:00 2001
+From: Pascal Giard <pascal.giard@lacime.etsmtl.ca>
+Date: Fri, 28 Aug 2015 13:23:29 -0400
+Subject: [PATCH 08/11] build: replace x86 isa includes with x86intrin.h
+
+Best practice is to only include x86intrin.h and that header will take care
+of including the remainder depending on the architecture.
+---
+ include/volk/volk_common.h | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+diff --git a/include/volk/volk_common.h b/include/volk/volk_common.h
+index 38263d5..ee75e58 100644
+--- a/include/volk/volk_common.h
++++ b/include/volk/volk_common.h
+@@ -68,11 +68,7 @@
+ #include <inttypes.h>
+ 
+ #ifdef LV_HAVE_SSE
+-#include <xmmintrin.h>
+-#endif
+-
+-#ifdef LV_HAVE_SSE2
+-#include <emmintrin.h>
++#include <x86intrin.h>
+ #endif
+ 
+ union bit128{
+-- 
+2.1.4
+

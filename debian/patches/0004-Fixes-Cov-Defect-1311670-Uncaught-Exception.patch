@@ -1,0 +1,33 @@
+From 6271c26474e75da9c51f3a39df05699d5ac8ed31 Mon Sep 17 00:00:00 2001
+From: Ben Hilburn <ben.hilburn@ettus.com>
+Date: Fri, 28 Aug 2015 21:16:38 -0700
+Subject: [PATCH 04/11] Fixes Cov Defect 1311670: Uncaught Exception
+
+It turns out that `run_volk_tests` calls into several other functions that may
+throw `std::string`s as exceptions. Now we properly catch those and report them.
+---
+ apps/volk_profile.cc | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/apps/volk_profile.cc b/apps/volk_profile.cc
+index 2e7ad25..5da7c0e 100644
+--- a/apps/volk_profile.cc
++++ b/apps/volk_profile.cc
+@@ -182,8 +182,14 @@ int main(int argc, char *argv[]) {
+         }
+ 
+         if( regex_match && update ) {
++            try {
+             run_volk_tests(test_case.desc(), test_case.kernel_ptr(), test_case.name(),
+                 test_case.test_parameters(), &results, test_case.puppet_master_name());
++            }
++            catch (std::string error) {
++                std::cerr << "Caught Exception in 'run_volk_tests': " << error << std::endl;
++            }
++
+         }
+     }
+ 
+-- 
+2.1.4
+

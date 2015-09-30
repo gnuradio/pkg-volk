@@ -1,0 +1,24 @@
+From 75ba8c4d7c6a10bebe3a69044430130727aab6d0 Mon Sep 17 00:00:00 2001
+From: Pascal Giard <pascal.giard@lacime.etsmtl.ca>
+Date: Fri, 28 Aug 2015 13:26:24 -0400
+Subject: [PATCH 09/11] Adds missing 8-bit integers to the bit128 union.
+
+---
+ include/volk/volk_common.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/include/volk/volk_common.h b/include/volk/volk_common.h
+index ee75e58..7180b6c 100644
+--- a/include/volk/volk_common.h
++++ b/include/volk/volk_common.h
+@@ -72,6 +72,7 @@
+ #endif
+ 
+ union bit128{
++  uint8_t i8[16];
+   uint16_t i16[8];
+   uint32_t i[4];
+   float f[4];
+-- 
+2.1.4
+
