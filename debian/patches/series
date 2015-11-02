@@ -1,12 +1,2 @@
-0002-Fixes-Coverity-Defect-1293620-Buffer-Overrun-in-volk.patch
-0003-Fixes-Cov-Defect-1311671-Dereference-before-NULL-che.patch
-0004-Fixes-Cov-Defect-1311670-Uncaught-Exception.patch
-0005-build-remove-builddate.patch
-0006-Fix-ifdef-guard-to-use-the-same-naming-convention-as.patch
-0007-modtool-Rename-the-ifdef-guards-in-all-header-files-.patch
-0008-build-replace-x86-isa-includes-with-x86intrin.h.patch
-0009-Adds-missing-8-bit-integers-to-the-bit128-union.patch
-0010-Adds-a-bit256-union-especially-useful-for-AVX-AVX2.patch
-0011-minifix-int-counter-0-for-counter-0-.-is-redundant.patch
 native-armv7-build-support
 debian-libver

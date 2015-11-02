@@ -1,3 +1,15 @@
+volk (1.1.1-1) unstable; urgency=medium
+
+  * New upstream release
+  * New architectures exist for the AVX2 and FMA ISAs.
+  * The profiler now generates buffers that are vlen + a tiny amount and
+    generates random data to fill buffers. This is intended to catch bugs
+    in protokernels that write beyond num_points.
+  * Note that libvolk1-dev replaces files in earlier gnuradio-dev versions
+    (Closes: #802646)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sun, 01 Nov 2015 18:45:43 -0500
+
 volk (1.1-4) unstable; urgency=medium
 
   * update to v1.1-12-g264addc
