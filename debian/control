@@ -38,8 +38,8 @@ Section: libdevel
 Architecture: any
 Pre-Depends: multiarch-support
 Depends: libvolk1.1 (=${binary:Version}), ${misc:Depends}
-Breaks: gnuradio-dev (<<3.7), libvolk-dev, libvolk1.0-dev
-Replaces: gnuradio-dev (<<3.7), libvolk-dev, libvolk1.0-dev
+Breaks: gnuradio-dev (<<3.7.8), libvolk-dev, libvolk1.0-dev
+Replaces: gnuradio-dev (<<3.7.8), libvolk-dev, libvolk1.0-dev
 Description: vector optimized function headers
  Vector-Optimized Library of Kernels is designed to help
  applications work with the processor's SIMD instruction sets. These are

@@ -1,3 +1,10 @@
+volk (1.1.1-2) unstable; urgency=medium
+
+  * Note that libvolk1-dev replaces files in gnuradio-dev versions <<3.7.8
+    (Closes: #802646) again. Thanks Andreas Beckmann.
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Fri, 13 Nov 2015 18:45:49 -0500
+
 volk (1.1.1-1) unstable; urgency=medium
 
   * New upstream release
