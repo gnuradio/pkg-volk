@@ -1,3 +1,9 @@
+volk (1.1.1-4) unstable; urgency=medium
+
+  * more lintian fixes
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Wed, 25 Nov 2015 21:49:58 -0500
+
 volk (1.1.1-3) unstable; urgency=medium
 
   * Lintian fixes Pre-Depends
