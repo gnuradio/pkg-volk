@@ -1,0 +1,10 @@
+--- a/kernels/volk/volk_32f_8u_polarbutterflypuppet_32f.h
++++ b/kernels/volk/volk_32f_8u_polarbutterflypuppet_32f.h
+@@ -31,6 +31,7 @@
+ #include <volk/volk_32f_8u_polarbutterfly_32f.h>
+ #include <volk/volk_8u_x3_encodepolar_8u_x2.h>
+ #include <volk/volk_8u_x3_encodepolarpuppet_8u.h>
++#include <volk/volk_8u_x2_encodeframepolar_8u.h>
+ 
+ 
+ static inline void

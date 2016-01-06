@@ -1,3 +1,15 @@
+volk (1.2-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Thu, 24 Dec 2015 20:28:13 -0500
+
+volk (1.1.1-5) experimental; urgency=medium
+
+  * update to v1.1.1-22-gef53547 to support gnuradio 3.7.9
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Fri, 11 Dec 2015 13:12:55 -0500
+
 volk (1.1.1-4) unstable; urgency=medium
 
   * more lintian fixes

@@ -5,8 +5,8 @@
      endif()
      set(DOCVER "${VERSION}")
 -    set(LIBVER "${VERSION}")
-+    # v1.0.1 is ABI complient with v1.0
-+    set(LIBVER "${MAJOR_VERSION}.${MINOR_VERSION}")
++    # v1.2 is ABI complient with v1.1
++    set(LIBVER "${MAJOR_VERSION}.1")
      set(RC_MINOR_VERSION ${MINOR_VERSION})
      set(RC_MAINT_VERSION ${MAINT_VERSION})
  endif()
