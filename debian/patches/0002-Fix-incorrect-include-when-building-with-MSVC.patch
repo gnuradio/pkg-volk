@@ -1,0 +1,30 @@
+From 65539f26916a06ea22973a9041c54a2b66b8e024 Mon Sep 17 00:00:00 2001
+From: Paul Cercueil <paul.cercueil@analog.com>
+Date: Mon, 15 Feb 2016 18:09:50 +0100
+Subject: [PATCH 2/4] Fix incorrect include when building with MSVC
+
+Signed-off-by: Paul Cercueil <paul.cercueil@analog.com>
+---
+ include/volk/volk_common.h | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/include/volk/volk_common.h b/include/volk/volk_common.h
+index 02c5bd9..4d35f5c 100644
+--- a/include/volk/volk_common.h
++++ b/include/volk/volk_common.h
+@@ -68,8 +68,12 @@
+ #include <inttypes.h>
+ 
+ #ifdef LV_HAVE_SSE
++#ifdef _WIN32
++#include <intrin.h>
++#else
+ #include <x86intrin.h>
+ #endif
++#endif
+ 
+ union bit128{
+   uint8_t i8[16];
+-- 
+2.1.4
+

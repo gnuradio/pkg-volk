@@ -1,3 +1,11 @@
+volk (1.2.1-2) unstable; urgency=medium
+
+  * Upstream patches:
+    Fix some CMake complaints
+    The fix for compilation with cmake 3.5
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Wed, 23 Mar 2016 17:47:54 -0400
+
 volk (1.2.1-1) unstable; urgency=medium
 
   * New upstream release

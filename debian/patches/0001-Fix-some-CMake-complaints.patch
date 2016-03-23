@@ -1,0 +1,40 @@
+From 434c994f2119a8897ca6e4e638addae008d73d58 Mon Sep 17 00:00:00 2001
+From: Paul Cercueil <paul.cercueil@analog.com>
+Date: Mon, 15 Feb 2016 17:37:40 +0100
+Subject: [PATCH 1/4] Fix some CMake complaints
+
+Signed-off-by: Paul Cercueil <paul.cercueil@analog.com>
+---
+ cmake/Modules/VolkAddTest.cmake | 2 +-
+ lib/CMakeLists.txt              | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/cmake/Modules/VolkAddTest.cmake b/cmake/Modules/VolkAddTest.cmake
+index 28f08d3..4106678 100644
+--- a/cmake/Modules/VolkAddTest.cmake
++++ b/cmake/Modules/VolkAddTest.cmake
+@@ -166,7 +166,7 @@ function(VOLK_ADD_TEST test_name)
+     #functionality will be removed in the future.  Leave it here for
+     #now until someone can figure out how to do this in Windows.
+     foreach(target ${test_name} ${VOLK_TEST_TARGET_DEPS})
+-      get_target_property(location ${target} LOCATION)
++      get_target_property(location "${target}" LOCATION)
+       if(location)
+         get_filename_component(path ${location} PATH)
+         string(REGEX REPLACE "\\$\\(.*\\)" ${CMAKE_BUILD_TYPE} path ${path})
+diff --git a/lib/CMakeLists.txt b/lib/CMakeLists.txt
+index 35b67dc..1343eb5 100644
+--- a/lib/CMakeLists.txt
++++ b/lib/CMakeLists.txt
+@@ -99,7 +99,7 @@ macro(check_arch arch_name)
+     set(flags ${ARGN})
+     set(have_${arch_name} TRUE)
+     foreach(flag ${flags})
+-        if ( (${COMPILER_NAME} STREQUAL "MSVC") AND (${flag} STREQUAL "/arch:SSE2" OR ${flag} STREQUAL "/arch:SSE" ))
++        if (MSVC AND (${flag} STREQUAL "/arch:SSE2" OR ${flag} STREQUAL "/arch:SSE" ))
+             # SSE/SSE2 is supported in MSVC since VS 2005 but flag not available when compiling 64-bit so do not check
+         else()
+             include(CheckCXXCompilerFlag)
+-- 
+2.1.4
+

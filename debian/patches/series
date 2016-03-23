@@ -1,3 +1,7 @@
+0001-Fix-some-CMake-complaints.patch
+0002-Fix-incorrect-include-when-building-with-MSVC.patch
+0003-tmpl-cast-windows-regs-to-int-calling-cpuidex.patch
+0004-The-fix-for-compilation-with-cmake-3.5.patch
 native-armv7-build-support
 make-acc-happy
 debian-libver
