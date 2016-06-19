@@ -1,3 +1,11 @@
+0001-volk_32f-c-_index_max_16u-changed-output-variable-fr.patch
+0002-volk-comment-out-machine-selected-debug-printf.patch
+0003-volk-move-no-arch-found-warning-message-from-stdout-.patch
+0004-Uses-uint32_t-uint16_t-data-types.patch
+0005-volk_32f-c-_index_max_16u-cap-num_points-uint32_t-to.patch
+0006-Added-volk_32f-c-_index_max_32u.patch
+0007-Removes-compiler-flags-from-MSVC-builds.patch
+0008-CMake-Generate-VolkConfig.cmake-with-a-hardcoded-ins.patch
 native-armv7-build-support
 make-acc-happy
 debian-libver

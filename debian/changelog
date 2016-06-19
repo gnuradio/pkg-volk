@@ -1,3 +1,9 @@
+volk (1.2.2-2) unstable; urgency=medium
+
+  * update to v1.2.2-11-g78c8bc4 (to follow gnuradio maint branch)
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sun, 19 Jun 2016 14:44:15 -0400
+
 volk (1.2.2-1) unstable; urgency=medium
 
   * New upstream release

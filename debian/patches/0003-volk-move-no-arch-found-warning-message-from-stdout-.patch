@@ -1,0 +1,26 @@
+From 9e7e39f870a0bfb1439cc6fdd821a442201121de Mon Sep 17 00:00:00 2001
+From: Vanya Sergeev <vsergeev@gmail.com>
+Date: Tue, 12 Apr 2016 05:33:06 -0700
+Subject: [PATCH 3/6] volk: move no arch found warning message from stdout to
+ stderr
+
+---
+ lib/volk_rank_archs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/volk_rank_archs.c b/lib/volk_rank_archs.c
+index 290e103..3ed7fee 100644
+--- a/lib/volk_rank_archs.c
++++ b/lib/volk_rank_archs.c
+@@ -38,7 +38,7 @@ int volk_get_index(
+     }
+     //TODO return -1;
+     //something terrible should happen here
+-    printf("Volk warning: no arch found, returning generic impl\n");
++    fprintf(stderr, "Volk warning: no arch found, returning generic impl\n");
+     return volk_get_index(impl_names, n_impls, "generic"); //but we'll fake it for now
+ }
+ 
+-- 
+2.1.4
+

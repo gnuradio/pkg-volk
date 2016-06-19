@@ -1,6 +1,6 @@
 --- a/lib/CMakeLists.txt
 +++ b/lib/CMakeLists.txt
-@@ -240,6 +240,13 @@
+@@ -250,6 +250,13 @@
  endif(NOT CPU_IS_x86)
  
  ########################################################################
@@ -14,7 +14,7 @@
  # implement overruling in the ORC case,
  # since ORC always passes flag detection
  ########################################################################
-@@ -404,7 +411,7 @@
+@@ -414,7 +421,7 @@
  # Handle ASM support
  #  on by default, but let users turn it off
  ########################################################################
@@ -23,7 +23,7 @@
    set(ASM_ARCHS_AVAILABLE "neon")
  
    set(FULL_C_FLAGS "${CMAKE_C_FLAGS}" "${CMAKE_CXX_COMPILER_ARG1}")
-@@ -414,7 +421,7 @@
+@@ -424,7 +431,7 @@
    # set up the assembler flags and include the source files
    foreach(ARCH ${ASM_ARCHS_AVAILABLE})
        string(REGEX MATCH "${ARCH}" ASM_ARCH "${available_archs}")
@@ -32,7 +32,7 @@
        message(STATUS "---- Adding ASM files") # we always use ATT syntax
        message(STATUS "-- Detected neon architecture; enabling ASM")
        # setup architecture specific assembler flags
-@@ -433,7 +440,7 @@
+@@ -443,7 +450,7 @@
      message(STATUS "asm flags: ${CMAKE_ASM_FLAGS}")
    endforeach(ARCH)
  
@@ -41,7 +41,7 @@
    message(STATUS "Not enabling ASM support. CMake >= 2.8.10 required.")
    foreach(machine_name ${available_machines})
      string(REGEX MATCH "neon" NEON_MACHINE ${machine_name})
-@@ -441,7 +448,7 @@
+@@ -451,7 +458,7 @@
        message(FATAL_ERROR "CMake >= 2.8.10 is required for ARM NEON support")
      endif()
    endforeach()

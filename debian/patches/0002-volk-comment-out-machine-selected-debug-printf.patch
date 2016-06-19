@@ -1,0 +1,32 @@
+From 53214e84f4946616bca737d272e5d2a08b9e411d Mon Sep 17 00:00:00 2001
+From: Vanya Sergeev <vsergeev@gmail.com>
+Date: Tue, 12 Apr 2016 05:20:39 -0700
+Subject: [PATCH 2/6] volk: comment out machine selected debug printf()
+
+This commit comments out the "Using Volk machine: <machine>" debug
+message on standard out, which interferes with programs trying to use
+standard out for legitimate purposes.
+
+This modification is consistent with other commented out debug printf()
+calls in the volk codebase, and should be superseded by a proper
+compile-time configurable logging system for the library.
+---
+ tmpl/volk.tmpl.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tmpl/volk.tmpl.c b/tmpl/volk.tmpl.c
+index 2f54bbc..1ededb2 100644
+--- a/tmpl/volk.tmpl.c
++++ b/tmpl/volk.tmpl.c
+@@ -53,7 +53,7 @@ struct volk_machine *get_machine(void)
+       }
+     }
+     machine = max_machine;
+-    printf("Using Volk machine: %s\n", machine->name);
++    //printf("Using Volk machine: %s\n", machine->name);
+     __alignment = machine->alignment;
+     __alignment_mask = (intptr_t)(__alignment-1);
+     return machine;
+-- 
+2.1.4
+
