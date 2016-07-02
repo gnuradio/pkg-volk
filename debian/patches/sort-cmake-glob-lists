@@ -1,0 +1,20 @@
+From: A. Maitland Bottoms <bottoms@debian.org>
+Subject sort cmake glob lists
+
+File lists are generated in a CMakeLists.txt file with file(GLOB ...), which varies
+with the readdir() order. Sorting the lists should help make reproducinble builds.
+
+--- a/lib/CMakeLists.txt
++++ b/lib/CMakeLists.txt
+@@ -328,8 +328,11 @@
+ 
+ #dependencies are all python, xml, and header implementation files
+ file(GLOB xml_files ${PROJECT_SOURCE_DIR}/gen/*.xml)
++list(SORT xml_files)
+ file(GLOB py_files ${PROJECT_SOURCE_DIR}/gen/*.py)
++list(SORT py_files)
+ file(GLOB h_files ${PROJECT_SOURCE_DIR}/kernels/volk/*.h)
++list(SORT h_files)
+ 
+ macro(gen_template tmpl output)
+     list(APPEND volk_gen_sources ${output})

@@ -6,7 +6,7 @@ debian/libvolk1-dev/usr/include/
 </headers>
 
 <libs>
-debian/libvolk1.1/usr/lib/
+debian/libvolk1.3/usr/lib/
 </libs>
 
 </descriptor>

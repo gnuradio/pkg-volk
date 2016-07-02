@@ -1,3 +1,11 @@
+From: A. Maitland Bottoms <bottoms@debian.org>
+Subject: make acc happy
+
+The abi-compliance-checker grabs all the .h files it finds
+and tries to compile them all. Even though some are not
+appropriate for the architecture being run on. Being careful
+with preprocessor protections avoids probplems.
+
 --- a/kernels/volk/volk_32f_8u_polarbutterflypuppet_32f.h
 +++ b/kernels/volk/volk_32f_8u_polarbutterflypuppet_32f.h
 @@ -31,6 +31,7 @@
@@ -8,3 +16,38 @@
  
  
  static inline void
+--- a/include/volk/volk_neon_intrinsics.h
++++ b/include/volk/volk_neon_intrinsics.h
+@@ -27,6 +27,7 @@
+ 
+ #ifndef INCLUDE_VOLK_VOLK_NEON_INTRINSICS_H_
+ #define INCLUDE_VOLK_VOLK_NEON_INTRINSICS_H_
++#ifdef LV_HAVE_NEON
+ #include <arm_neon.h>
+ 
+ static inline float32x4_t
+@@ -119,4 +120,5 @@
+   return log2_approx;
+ }
+ 
++#endif /*LV_HAVE_NEON*/
+ #endif /* INCLUDE_VOLK_VOLK_NEON_INTRINSICS_H_ */
+--- a/kernels/volk/volk_8u_x2_encodeframepolar_8u.h
++++ b/kernels/volk/volk_8u_x2_encodeframepolar_8u.h
+@@ -58,8 +58,6 @@
+   }
+ }
+ 
+-#ifdef LV_HAVE_GENERIC
+-
+ static inline void
+ volk_8u_x2_encodeframepolar_8u_generic(unsigned char* frame, unsigned char* temp,
+                                        unsigned int frame_size)
+@@ -79,7 +77,6 @@
+     --stage;
+   }
+ }
+-#endif /* LV_HAVE_GENERIC */
+ 
+ #ifdef LV_HAVE_SSSE3
+ #include <tmmintrin.h>

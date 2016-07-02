@@ -1,3 +1,10 @@
+From: A. Maitland Bottoms <bottoms@debian.org>
+Subject: native armv7 build support
+
+Debian, unlike other GNU Radio deployments, does not cross-compile
+packages, but builds natively on a set of build machines, including
+both arm and armhf.
+
 --- a/lib/CMakeLists.txt
 +++ b/lib/CMakeLists.txt
 @@ -250,6 +250,13 @@

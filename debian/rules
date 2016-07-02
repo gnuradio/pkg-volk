@@ -5,10 +5,13 @@ DH_VERBOSE=1
 export DH_VERBOSE
 
 %:
-	dh $@ --with python2
+	dh $@ --with python2 --with acc
 
 override_dh_auto_configure:
 	dh_auto_configure -- -DLIB_SUFFIX="/$(DEB_HOST_MULTIARCH)" -DPYTHON_EXECUTABLE=/usr/bin/python
 
 override_dh_auto_test:
 	- dh_auto_test -- CTEST_TEST_TIMEOUT=60
+
+override_dh_acc:
+	- dh_acc
