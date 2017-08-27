@@ -1,4 +1,15 @@
+0001-Add-a-AppVeyor-compatible-YAML-file-for-building-on-.patch
+0003-apps-fix-profile-update-reading-end-of-lines.patch
+0005-qa-lower-tolerance-for-32fc_mag-to-fix-issue-96.patch
+0006-Add-NEON-AVX-and-unaligned-versions-of-SSE4.1-and-SS.patch
+0007-added-__VOLK_PREFETCH-compatibility-macro.patch
+0008-Fix-bug-106-volk_64u_popcnt-bug-in-generic-implement.patch
+0009-modtool-deconflict-module-include-guards-from-main-v.patch
+0010-modtool-update-the-cmake-find-module-for-volk-mods.patch
+0011-Use-powf-to-match-variables-and-avoid-implicit-type-.patch
 native-armv7-build-support
 make-acc-happy
 sort-cmake-glob-lists
 install-all-headers
+sort-input-files.patch
+libm-link

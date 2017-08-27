@@ -1,0 +1,26 @@
+From b0b9615e4e5d38c0d8d6bcc06ccefe08682ec352 Mon Sep 17 00:00:00 2001
+From: Nick Foster <bistromath@gmail.com>
+Date: Fri, 20 Jan 2017 16:36:01 -0800
+Subject: [PATCH 08/11] Fix bug 106 (volk_64u_popcnt bug in generic
+ implementation)
+
+---
+ kernels/volk/volk_64u_popcnt.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/kernels/volk/volk_64u_popcnt.h b/kernels/volk/volk_64u_popcnt.h
+index 653bfb9..cbce2ec 100644
+--- a/kernels/volk/volk_64u_popcnt.h
++++ b/kernels/volk/volk_64u_popcnt.h
+@@ -84,7 +84,7 @@ volk_64u_popcnt_generic(uint64_t* ret, const uint64_t value)
+   uint64_t retVal64  = retVal;
+ 
+   //retVal = valueVector[1];
+-  retVal = (uint32_t)((value & 0xFFFFFFFF00000000ull) >> 31);
++  retVal = (uint32_t)((value & 0xFFFFFFFF00000000ull) >> 32);
+   retVal = (retVal & 0x55555555) + (retVal >> 1 & 0x55555555);
+   retVal = (retVal & 0x33333333) + (retVal >> 2 & 0x33333333);
+   retVal = (retVal + (retVal >> 4)) & 0x0F0F0F0F;
+-- 
+2.11.0
+

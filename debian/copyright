@@ -1,4 +1,4 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: volk
 Upstream-Contact: http://libvolk.org/
 Source:
@@ -17,67 +17,31 @@ Comment:
 Copyright: 2014-2015 Free Software Foundation, Inc.
 License: GPL-3+
 
-Files: apps/* cmake/* CMakeLists.txt docs/* Doxyfile.in DoxygenLayout.xml
- gen/* include/* kernels/* lib/* python/* README tmpl/* volk.pc.in
- .gitignore
+Files: *
+Copyright: 2006, 2009-2016, Free Software Foundation, Inc.
+License: GPL-3+
+
+Files: Doxyfile.in
+  DoxygenLayout.xml
+  volk.pc.in
 Copyright: 2014-2015 Free Software Foundation, Inc.
 License: GPL-3+
 
-Files: COPYING
-Copyright: 1989, 1991 Free Software Foundation, Inc.
-License: COPYING
- Everyone is permitted to copy and distribute verbatim copies
- of this license document, but changing it is not allowed.
-
-Files: debian/*
-Copyright: 2015 Free Software Foundation, Inc
-Comment: assigned by A. Maitland Bottoms <bottoms@debian.org>
+Files: apps/volk_profile.h
+Copyright: 2014-2015 Free Software Foundation, Inc.
 License: GPL-3+
 
-Files: cmake/msvc/inttypes.h cmake/msvc/stdint.h
-Copyright: 2006 Alexander Chemeris
-License: AC-BSD
- Redistribution and use in source and binary forms, with or without
- modification, are permitted provided that the following conditions are met:
- .
-   1. Redistributions of source code must retain the above copyright notice,
-      this list of conditions and the following disclaimer.
- .
-   2. Redistributions in binary form must reproduce the above copyright
-      notice, this list of conditions and the following disclaimer in the
-      documentation and/or other materials provided with the distribution.
- .
-   3. The name of the author may be used to endorse or promote products
-      derived from this software without specific prior written permission.
- .
- THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
- WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
- EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
- OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
- OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
- ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+Files: appveyor.yml
+Copyright: 2016 Paul Cercueil <paul.cercueil@analog.com>
+License: GPL-3+
 
-Files: cmake/msvc/config.h cmake/msvc/stdbool.h
-Copyright: 2005, 2006 Apple Computer, Inc.
-License: LGPL-2+
- This library is free software; you can redistribute it and/or
- modify it under the terms of the GNU Library General Public
- License as published by the Free Software Foundation; either
- version 2 of the License, or (at your option) any later version.
- .
- This library is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- Library General Public License for more details.
- .
- You should have received a copy of the GNU Library General Public License
- along with this library; see the file COPYING.LIB.  If not, write to
- the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- Boston, MA 02110-1301, USA.
+Files: cmake/*
+Copyright: 2014-2015 Free Software Foundation, Inc.
+License: GPL-3+
+
+Files: cmake/Modules/*
+Copyright: 2006, 2009-2016, Free Software Foundation, Inc.
+License: GPL-3+
 
 Files: cmake/Modules/CMakeParseArgumentsCopy.cmake
 Copyright: 2010 Alexander Neundorf <neundorf@kde.org>
@@ -111,6 +75,103 @@ License: Kitware-BSD
  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Files: cmake/Modules/FindORC.cmake
+  cmake/Modules/VolkConfig.cmake.in
+Copyright: 2014-2015 Free Software Foundation, Inc.
+License: GPL-3+
+
+Files: cmake/msvc/*
+Copyright: 2006-2008, Alexander Chemeris
+License: BSD-2-clause
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions are met:
+ .
+   1. Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+ .
+   2. Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+ .
+   3. The name of the author may be used to endorse or promote products
+      derived from this software without specific prior written permission.
+ .
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
+ WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+ EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Files: cmake/msvc/config.h
+Copyright: 2005, 2006 Apple Computer, Inc.
+License: LGPL-2+
+
+Files: cmake/msvc/stdbool.h
+Copyright: 2005, 2006, Apple Computer, Inc.
+License: LGPL-2+
+
+Files: debian/*
+Copyright: 2015 Free Software Foundation, Inc
+License: GPL-3+
+Comment: assigned by A. Maitland Bottoms <bottoms@debian.org>
+
+Files: debian/libvolk1-dev.abi.tar.gz.amd64
+Copyright: 2016 Free Software Foundation, Inc
+License: GPL-3+
+
+Files: docs/*
+Copyright: 2014-2015 Free Software Foundation, Inc.
+License: GPL-3+
+
+Files: gen/archs.xml
+  gen/machines.xml
+Copyright: 2014-2015 Free Software Foundation, Inc.
+License: GPL-3+
+
+Files: include/volk/volk_common.h
+  include/volk/volk_complex.h
+  include/volk/volk_prefs.h
+Copyright: 2014-2015 Free Software Foundation, Inc.
+License: GPL-3+
+
+Files: kernels/volk/asm/*
+Copyright: 2014-2015 Free Software Foundation, Inc.
+License: GPL-3+
+
+Files: kernels/volk/volk_16u_byteswappuppet_16u.h
+  kernels/volk/volk_32u_byteswappuppet_32u.h
+  kernels/volk/volk_64u_byteswappuppet_64u.h
+Copyright: 2014-2015 Free Software Foundation, Inc.
+License: GPL-3+
+
+Files: lib/kernel_tests.h
+  lib/qa_utils.cc
+  lib/qa_utils.h
+  lib/volk_prefs.c
+Copyright: 2014-2015 Free Software Foundation, Inc.
+License: GPL-3+
+
+License: LGPL-2+
+ This library is free software; you can redistribute it and/or
+ modify it under the terms of the GNU Library General Public
+ License as published by the Free Software Foundation; either
+ version 2 of the License, or (at your option) any later version.
+ .
+ This library is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ Library General Public License for more details.
+ .
+ You should have received a copy of the GNU Library General Public License
+ along with this library; see the file COPYING.LIB.  If not, write to
+ the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+ Boston, MA 02110-1301, USA.
 
 License: GPL-3+
  This program is free software: you can redistribute it and/or modify

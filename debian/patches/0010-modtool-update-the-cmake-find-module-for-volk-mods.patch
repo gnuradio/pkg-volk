@@ -1,0 +1,27 @@
+From 663dbd00b3e4bd3ddb0b7f8a9360df132d7f0d56 Mon Sep 17 00:00:00 2001
+From: Nathan West <nathan.west@nrl.navy.mil>
+Date: Mon, 13 Mar 2017 12:37:18 -0400
+Subject: [PATCH 10/11] modtool: update the cmake find module for volk mods
+
+---
+ python/volk_modtool/volk_modtool_generate.py | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/python/volk_modtool/volk_modtool_generate.py b/python/volk_modtool/volk_modtool_generate.py
+index 6040a7d..75232ed 100644
+--- a/python/volk_modtool/volk_modtool_generate.py
++++ b/python/volk_modtool/volk_modtool_generate.py
+@@ -113,6 +113,10 @@ class volk_modtool:
+                     if name in need_ifdef_updates:
+                         outstring = re.sub(self.volk_included, 'INCLUDED_VOLK_' + self.my_dict['name'].upper(), outstring)
+                     newname = re.sub(self.volk, 'volk_' + self.my_dict['name'], name)
++                    if name == 'VolkConfig.cmake.in':
++                        outstring = re.sub("VOLK", 'VOLK_' + self.my_dict['name'].upper(), outstring)
++                        newname = "Volk%sConfig.cmake.in" % self.my_dict['name']
++
+                     relpath = os.path.relpath(infile, self.my_dict['base'])
+                     newrelpath = re.sub(self.volk, 'volk_' + self.my_dict['name'], relpath)
+                     dest = os.path.join(self.my_dict['destination'], 'volk_' + self.my_dict['name'], os.path.dirname(newrelpath), newname)
+-- 
+2.11.0
+
