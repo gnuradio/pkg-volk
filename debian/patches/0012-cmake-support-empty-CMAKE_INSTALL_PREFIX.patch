@@ -1,0 +1,26 @@
+From 67202d7b46f9ce55625d0ce5c3a2d98dff56b09a Mon Sep 17 00:00:00 2001
+From: Josh Blum <josh@joshknows.com>
+Date: Wed, 5 Oct 2016 14:09:05 -0700
+Subject: [PATCH 12/18] cmake: support empty CMAKE_INSTALL_PREFIX
+
+Needed quotes for the string escape command
+---
+ lib/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/CMakeLists.txt b/lib/CMakeLists.txt
+index ad5653c..45b6c51 100644
+--- a/lib/CMakeLists.txt
++++ b/lib/CMakeLists.txt
+@@ -489,7 +489,7 @@ endif()
+ message(STATUS "Loading version ${VERSION} into constants...")
+ 
+ #double escape for windows backslash path separators
+-string(REPLACE "\\" "\\\\" prefix ${prefix})
++string(REPLACE "\\" "\\\\" prefix "${prefix}")
+ 
+ configure_file(
+     ${CMAKE_CURRENT_SOURCE_DIR}/constants.c.in
+-- 
+2.11.0
+

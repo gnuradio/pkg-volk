@@ -1,7 +1,7 @@
 From 5af8aa45fa23f72aff8593f54e7b67e449927681 Mon Sep 17 00:00:00 2001
 From: Nathan West <nathan.west@nrl.navy.mil>
 Date: Mon, 13 Mar 2017 12:25:35 -0400
-Subject: [PATCH 09/11] modtool: deconflict module include guards from main
+Subject: [PATCH 09/18] modtool: deconflict module include guards from main
  volk
 
 ---

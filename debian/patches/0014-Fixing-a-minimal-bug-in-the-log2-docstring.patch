@@ -1,0 +1,25 @@
+From ee70be38a66beb5eb236a3ffb3fc147a5d053979 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Marcus=20M=C3=BCller?= <marcus@hostalia.de>
+Date: Mon, 20 Nov 2017 15:12:06 +0100
+Subject: [PATCH 14/18] Fixing a minimal bug in the log2 docstring
+
+---
+ kernels/volk/volk_32f_log2_32f.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/kernels/volk/volk_32f_log2_32f.h b/kernels/volk/volk_32f_log2_32f.h
+index 6704129..c3bfeaa 100644
+--- a/kernels/volk/volk_32f_log2_32f.h
++++ b/kernels/volk/volk_32f_log2_32f.h
+@@ -62,7 +62,7 @@
+  * \li num_points: The number of data points.
+  *
+  * \b Outputs
+- * \li cVector: The output vector.
++ * \li bVector: The output vector.
+  *
+  * \b Example
+  * \code
+-- 
+2.11.0
+

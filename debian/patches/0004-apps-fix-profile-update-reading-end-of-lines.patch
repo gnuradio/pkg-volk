@@ -1,7 +1,7 @@
 From 0d672945dfca506d4e49e857ce886d2b3dc80e96 Mon Sep 17 00:00:00 2001
 From: Nathan West <nathan.west@gnuradio.org>
 Date: Mon, 1 Aug 2016 17:12:24 -0400
-Subject: [PATCH 04/11] apps: fix profile update reading end of lines
+Subject: [PATCH 04/18] apps: fix profile update reading end of lines
 
 ---
  apps/volk_profile.cc | 2 +-

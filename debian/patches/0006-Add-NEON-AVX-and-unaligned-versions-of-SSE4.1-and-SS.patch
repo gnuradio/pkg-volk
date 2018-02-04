@@ -1,7 +1,7 @@
 From aeaf56828ba0a08728a0cf2d2370b5d0153332b1 Mon Sep 17 00:00:00 2001
 From: Carles Fernandez <carlesfernandez@gmail.com>
 Date: Fri, 23 Sep 2016 19:16:27 +0200
-Subject: [PATCH 06/11] Add NEON, AVX and unaligned versions of SSE4.1 and SSE
+Subject: [PATCH 06/18] Add NEON, AVX and unaligned versions of SSE4.1 and SSE
 
 ---
  kernels/volk/volk_32f_index_max_32u.h | 316 ++++++++++++++++++++++++++++++++++

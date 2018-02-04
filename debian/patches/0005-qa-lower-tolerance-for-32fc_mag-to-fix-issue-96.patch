@@ -1,7 +1,7 @@
 From 0f6d889b891bc2ac78c56ad18e43c4ec5a372574 Mon Sep 17 00:00:00 2001
 From: Nathan West <nathan.west@gnuradio.org>
 Date: Thu, 4 Aug 2016 11:30:55 -0400
-Subject: [PATCH 05/11] qa: lower tolerance for 32fc_mag to fix issue #96
+Subject: [PATCH 05/18] qa: lower tolerance for 32fc_mag to fix issue #96
 
 ---
  lib/kernel_tests.h | 4 +++-

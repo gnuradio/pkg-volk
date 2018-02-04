@@ -1,7 +1,7 @@
 From 18428fb9f718f5f7fa34707dd47ab6db07d88683 Mon Sep 17 00:00:00 2001
 From: Nathan West <nathan.west@gnuradio.org>
 Date: Sat, 2 Jul 2016 12:01:28 -0400
-Subject: [PATCH 02/11] Update CMakeLists for 1.3 development
+Subject: [PATCH 02/18] Update CMakeLists for 1.3 development
 
 ---
  CMakeLists.txt | 2 +-

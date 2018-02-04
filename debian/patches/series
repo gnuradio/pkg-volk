@@ -7,6 +7,13 @@
 0009-modtool-deconflict-module-include-guards-from-main-v.patch
 0010-modtool-update-the-cmake-find-module-for-volk-mods.patch
 0011-Use-powf-to-match-variables-and-avoid-implicit-type-.patch
+0012-cmake-support-empty-CMAKE_INSTALL_PREFIX.patch
+0013-Support-relocated-install-with-VOLK_PREFIX-env-var.patch
+0014-Fixing-a-minimal-bug-in-the-log2-docstring.patch
+0015-kernel-Adds-unaligned-protokernles-to-32f_x2_s32f_in.patch
+0016-kernels-Adds-AVX-support-to-volk_32f_-kernels.patch
+0017-kernels-Add-AVX-support-to-32f_x2_divide_32f-32f_x2_.patch
+0018-fix-GH-issue-139-for-32fc_index_max_-kernels.patch
 native-armv7-build-support
 make-acc-happy
 sort-cmake-glob-lists

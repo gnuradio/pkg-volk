@@ -1,7 +1,7 @@
 From 663dbd00b3e4bd3ddb0b7f8a9360df132d7f0d56 Mon Sep 17 00:00:00 2001
 From: Nathan West <nathan.west@nrl.navy.mil>
 Date: Mon, 13 Mar 2017 12:37:18 -0400
-Subject: [PATCH 10/11] modtool: update the cmake find module for volk mods
+Subject: [PATCH 10/18] modtool: update the cmake find module for volk mods
 
 ---
  python/volk_modtool/volk_modtool_generate.py | 4 ++++

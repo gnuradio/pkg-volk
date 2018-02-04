@@ -1,7 +1,7 @@
 From d065c1cdd34c0f5c78911331381e10687faa14a0 Mon Sep 17 00:00:00 2001
 From: Josh Blum <josh@joshknows.com>
 Date: Fri, 20 Jan 2017 10:03:49 -0800
-Subject: [PATCH 07/11] added __VOLK_PREFETCH() compatibility macro
+Subject: [PATCH 07/18] added __VOLK_PREFETCH() compatibility macro
 
 __VOLK_PREFETCH() performs __builtin_prefetch() on GCC compilers
 and is otherwise a NOP for other systems. The use of __builtin_prefetch

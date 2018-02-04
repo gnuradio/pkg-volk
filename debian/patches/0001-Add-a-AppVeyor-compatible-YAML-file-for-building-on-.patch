@@ -1,7 +1,7 @@
 From 4461f27f6533cf29baaac0ff9cdd9b6241c0840b Mon Sep 17 00:00:00 2001
 From: Paul Cercueil <paul.cercueil@analog.com>
 Date: Wed, 17 Feb 2016 14:51:00 +0100
-Subject: [PATCH 01/11] Add a AppVeyor compatible YAML file for building on the
+Subject: [PATCH 01/18] Add a AppVeyor compatible YAML file for building on the
  AppVeyor CI
 
 Signed-off-by: Paul Cercueil <paul.cercueil@analog.com>

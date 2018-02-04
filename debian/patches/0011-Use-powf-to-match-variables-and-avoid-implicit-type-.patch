@@ -1,7 +1,7 @@
 From 28b03a9a338dc24b002413e880222fe1d49f77f5 Mon Sep 17 00:00:00 2001
 From: Michael Dickens <michael.dickens@ettus.com>
 Date: Sat, 1 Apr 2017 15:24:46 -0400
-Subject: [PATCH 11/11] Use 'powf' to match variables and avoid implicit type
+Subject: [PATCH 11/18] Use 'powf' to match variables and avoid implicit type
  converstion. Makes some older compilers happy, allowing 'make test' to pass.
 
 ---

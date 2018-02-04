@@ -1,7 +1,7 @@
 From b0b9615e4e5d38c0d8d6bcc06ccefe08682ec352 Mon Sep 17 00:00:00 2001
 From: Nick Foster <bistromath@gmail.com>
 Date: Fri, 20 Jan 2017 16:36:01 -0800
-Subject: [PATCH 08/11] Fix bug 106 (volk_64u_popcnt bug in generic
+Subject: [PATCH 08/18] Fix bug 106 (volk_64u_popcnt bug in generic
  implementation)
 
 ---
