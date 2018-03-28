@@ -1,7 +1,7 @@
-From f6dbb5f8ba840075dde9f0aa1cc48b805ea4d1c5 Mon Sep 17 00:00:00 2001
+From 77da3b36b68482d1d2309a0725da399196682de0 Mon Sep 17 00:00:00 2001
 From: "Bernhard M. Wiedemann" <bwiedemann@suse.de>
 Date: Mon, 5 Jun 2017 21:37:38 +0200
-Subject: [PATCH 2/5] sort input files
+Subject: [PATCH 5/6] sort input files
 
 when building packages (e.g. for openSUSE Linux)
 (random) filesystem order of input files

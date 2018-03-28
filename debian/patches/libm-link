@@ -1,6 +1,18 @@
+From d5b3efee2ba879a604ed1feb33f971903ac677fa Mon Sep 17 00:00:00 2001
+From: "A. Maitland Bottoms" <bottoms@debian.org>
+Date: Tue, 27 Mar 2018 22:08:41 -0400
+Subject: [PATCH 6/6] libm link
+
+Explicitly tell cmake to link with libm
+---
+ lib/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/CMakeLists.txt b/lib/CMakeLists.txt
+index dd3e05a..e8aef54 100644
 --- a/lib/CMakeLists.txt
 +++ b/lib/CMakeLists.txt
-@@ -544,7 +544,7 @@
+@@ -544,7 +544,7 @@ if(CMAKE_VERSION VERSION_GREATER "2.8.7")
  
      #Add dynamic library
      add_library(volk SHARED $<TARGET_OBJECTS:volk_obj>)
@@ -9,3 +21,6 @@
  
      #Configure target properties
      set_target_properties(volk_obj PROPERTIES COMPILE_FLAGS "-fPIC")
+-- 
+2.11.0
+

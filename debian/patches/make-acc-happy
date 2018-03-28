@@ -1,21 +1,20 @@
-From: A. Maitland Bottoms <bottoms@debian.org>
-Subject: make acc happy
+From 799245ea6e9e05cc0ed0fabe783fbbe1a5054fd4 Mon Sep 17 00:00:00 2001
+From: "A. Maitland Bottoms" <bottoms@debian.org>
+Date: Tue, 27 Mar 2018 22:02:59 -0400
+Subject: [PATCH 2/6] make acc happy
 
 The abi-compliance-checker grabs all the .h files it finds
 and tries to compile them all. Even though some are not
 appropriate for the architecture being run on. Being careful
-with preprocessor protections avoids probplems.
+with preprocessor protections avoids problems.
+---
+ include/volk/volk_neon_intrinsics.h                 | 2 ++
+ kernels/volk/volk_32f_8u_polarbutterflypuppet_32f.h | 1 +
+ kernels/volk/volk_8u_x2_encodeframepolar_8u.h       | 3 ---
+ 3 files changed, 3 insertions(+), 3 deletions(-)
 
---- a/kernels/volk/volk_32f_8u_polarbutterflypuppet_32f.h
-+++ b/kernels/volk/volk_32f_8u_polarbutterflypuppet_32f.h
-@@ -31,6 +31,7 @@
- #include <volk/volk_32f_8u_polarbutterfly_32f.h>
- #include <volk/volk_8u_x3_encodepolar_8u_x2.h>
- #include <volk/volk_8u_x3_encodepolarpuppet_8u.h>
-+#include <volk/volk_8u_x2_encodeframepolar_8u.h>
- 
- 
- static inline void
+diff --git a/include/volk/volk_neon_intrinsics.h b/include/volk/volk_neon_intrinsics.h
+index 3f121a8..ef42dea 100644
 --- a/include/volk/volk_neon_intrinsics.h
 +++ b/include/volk/volk_neon_intrinsics.h
 @@ -27,6 +27,7 @@
@@ -26,15 +25,29 @@ with preprocessor protections avoids probplems.
  #include <arm_neon.h>
  
  static inline float32x4_t
-@@ -119,4 +120,5 @@
+@@ -119,4 +120,5 @@ _vlog2q_f32(float32x4_t aval)
    return log2_approx;
  }
  
 +#endif /*LV_HAVE_NEON*/
  #endif /* INCLUDE_VOLK_VOLK_NEON_INTRINSICS_H_ */
+diff --git a/kernels/volk/volk_32f_8u_polarbutterflypuppet_32f.h b/kernels/volk/volk_32f_8u_polarbutterflypuppet_32f.h
+index 49a3076..4f84352 100644
+--- a/kernels/volk/volk_32f_8u_polarbutterflypuppet_32f.h
++++ b/kernels/volk/volk_32f_8u_polarbutterflypuppet_32f.h
+@@ -31,6 +31,7 @@
+ #include <volk/volk_32f_8u_polarbutterfly_32f.h>
+ #include <volk/volk_8u_x3_encodepolar_8u_x2.h>
+ #include <volk/volk_8u_x3_encodepolarpuppet_8u.h>
++#include <volk/volk_8u_x2_encodeframepolar_8u.h>
+ 
+ 
+ static inline void
+diff --git a/kernels/volk/volk_8u_x2_encodeframepolar_8u.h b/kernels/volk/volk_8u_x2_encodeframepolar_8u.h
+index 6a605c6..ff729a8 100644
 --- a/kernels/volk/volk_8u_x2_encodeframepolar_8u.h
 +++ b/kernels/volk/volk_8u_x2_encodeframepolar_8u.h
-@@ -58,8 +58,6 @@
+@@ -58,8 +58,6 @@ encodepolar_single_stage(unsigned char* frame_ptr, const unsigned char* temp_ptr
    }
  }
  
@@ -43,7 +56,7 @@ with preprocessor protections avoids probplems.
  static inline void
  volk_8u_x2_encodeframepolar_8u_generic(unsigned char* frame, unsigned char* temp,
                                         unsigned int frame_size)
-@@ -79,7 +77,6 @@
+@@ -79,7 +77,6 @@ volk_8u_x2_encodeframepolar_8u_generic(unsigned char* frame, unsigned char* temp
      --stage;
    }
  }
@@ -51,3 +64,6 @@ with preprocessor protections avoids probplems.
  
  #ifdef LV_HAVE_SSSE3
  #include <tmmintrin.h>
+-- 
+2.11.0
+

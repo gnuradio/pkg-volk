@@ -1,13 +1,20 @@
-From: A. Maitland Bottoms <bottoms@debian.org>
-Subject: native armv7 build support
+From b554121e765a3495e23975112f269a8083950212 Mon Sep 17 00:00:00 2001
+From: "A. Maitland Bottoms" <bottoms@debian.org>
+Date: Tue, 27 Mar 2018 22:01:33 -0400
+Subject: [PATCH 1/6] native armv7 build support
 
 Debian, unlike other GNU Radio deployments, does not cross-compile
 packages, but builds natively on a set of build machines, including
 both arm and armhf.
+---
+ lib/CMakeLists.txt | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
 
+diff --git a/lib/CMakeLists.txt b/lib/CMakeLists.txt
+index 45b6c51..46451ec 100644
 --- a/lib/CMakeLists.txt
 +++ b/lib/CMakeLists.txt
-@@ -250,6 +250,13 @@
+@@ -250,6 +250,13 @@ if(NOT CPU_IS_x86)
  endif(NOT CPU_IS_x86)
  
  ########################################################################
@@ -21,7 +28,7 @@ both arm and armhf.
  # implement overruling in the ORC case,
  # since ORC always passes flag detection
  ########################################################################
-@@ -414,7 +421,7 @@
+@@ -414,7 +421,7 @@ include_directories(
  # Handle ASM support
  #  on by default, but let users turn it off
  ########################################################################
@@ -30,7 +37,7 @@ both arm and armhf.
    set(ASM_ARCHS_AVAILABLE "neon")
  
    set(FULL_C_FLAGS "${CMAKE_C_FLAGS}" "${CMAKE_CXX_COMPILER_ARG1}")
-@@ -424,7 +431,7 @@
+@@ -424,7 +431,7 @@ if(${CMAKE_VERSION} VERSION_GREATER "2.8.9")
    # set up the assembler flags and include the source files
    foreach(ARCH ${ASM_ARCHS_AVAILABLE})
        string(REGEX MATCH "${ARCH}" ASM_ARCH "${available_archs}")
@@ -39,7 +46,7 @@ both arm and armhf.
        message(STATUS "---- Adding ASM files") # we always use ATT syntax
        message(STATUS "-- Detected neon architecture; enabling ASM")
        # setup architecture specific assembler flags
-@@ -443,7 +450,7 @@
+@@ -443,7 +450,7 @@ if(${CMAKE_VERSION} VERSION_GREATER "2.8.9")
      message(STATUS "asm flags: ${CMAKE_ASM_FLAGS}")
    endforeach(ARCH)
  
@@ -48,7 +55,7 @@ both arm and armhf.
    message(STATUS "Not enabling ASM support. CMake >= 2.8.10 required.")
    foreach(machine_name ${available_machines})
      string(REGEX MATCH "neon" NEON_MACHINE ${machine_name})
-@@ -451,7 +458,7 @@
+@@ -451,7 +458,7 @@ else(${CMAKE_VERSION} VERSION_GREATER "2.8.9")
        message(FATAL_ERROR "CMake >= 2.8.10 is required for ARM NEON support")
      endif()
    endforeach()
@@ -57,3 +64,6 @@ both arm and armhf.
  
  ########################################################################
  # Handle orc support
+-- 
+2.11.0
+

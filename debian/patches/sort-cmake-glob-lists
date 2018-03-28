@@ -1,12 +1,19 @@
-From: A. Maitland Bottoms <bottoms@debian.org>
-Subject sort cmake glob lists
+From 9d32c341220aeb5a07011b7ef349f8c606941ee4 Mon Sep 17 00:00:00 2001
+From: "A. Maitland Bottoms" <bottoms@debian.org>
+Date: Tue, 27 Mar 2018 22:04:11 -0400
+Subject: [PATCH 3/6] sort cmake glob lists
 
 File lists are generated in a CMakeLists.txt file with file(GLOB ...), which varies
-with the readdir() order. Sorting the lists should help make reproducinble builds.
+with the readdir() order. Sorting the lists should help make reproducible builds.
+---
+ lib/CMakeLists.txt | 3 +++
+ 1 file changed, 3 insertions(+)
 
+diff --git a/lib/CMakeLists.txt b/lib/CMakeLists.txt
+index 46451ec..dd3e05a 100644
 --- a/lib/CMakeLists.txt
 +++ b/lib/CMakeLists.txt
-@@ -328,8 +328,11 @@
+@@ -328,8 +328,11 @@ message(STATUS "Available machines: ${available_machines}")
  
  #dependencies are all python, xml, and header implementation files
  file(GLOB xml_files ${PROJECT_SOURCE_DIR}/gen/*.xml)
@@ -18,3 +25,6 @@ with the readdir() order. Sorting the lists should help make reproducinble build
  
  macro(gen_template tmpl output)
      list(APPEND volk_gen_sources ${output})
+-- 
+2.11.0
+
