@@ -9,11 +9,9 @@ with the readdir() order. Sorting the lists should help make reproducible builds
  lib/CMakeLists.txt | 3 +++
  1 file changed, 3 insertions(+)
 
-diff --git a/lib/CMakeLists.txt b/lib/CMakeLists.txt
-index 46451ec..dd3e05a 100644
 --- a/lib/CMakeLists.txt
 +++ b/lib/CMakeLists.txt
-@@ -328,8 +328,11 @@ message(STATUS "Available machines: ${available_machines}")
+@@ -328,8 +328,11 @@
  
  #dependencies are all python, xml, and header implementation files
  file(GLOB xml_files ${PROJECT_SOURCE_DIR}/gen/*.xml)
@@ -25,6 +23,3 @@ index 46451ec..dd3e05a 100644
  
  macro(gen_template tmpl output)
      list(APPEND volk_gen_sources ${output})
--- 
-2.11.0
-

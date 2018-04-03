@@ -1,6 +1,6 @@
 Source: volk
 Section: libdevel
-Priority: extra
+Priority: optional
 Maintainer: A. Maitland Bottoms <bottoms@debian.org>
 Build-Depends: cmake,
                debhelper (>= 9.0.0~),
@@ -13,13 +13,17 @@ Build-Depends: cmake,
                liborc-0.4-dev,
                pkg-config,
                python,
-               python-cheetah
+	       python3,
+               python-mako,
+	       python3-mako,
+	       python-six,
+	       python3-six
 Standards-Version: 4.1.3
 Homepage: http://libvolk.org
 Vcs-Browser: https://salsa.debian.org/bottoms/pkg-volk
 Vcs-Git: https://salsa.debian.org/bottoms/pkg-volk.git
 
-Package: libvolk1.3
+Package: libvolk1.4
 Section: libs
 Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
@@ -36,7 +40,7 @@ Description: vector optimized functions
 Package: libvolk1-dev
 Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
-Depends: libvolk1.3 (=${binary:Version}), ${misc:Depends}
+Depends: libvolk1.4 (=${binary:Version}), ${misc:Depends}
 Breaks: gnuradio-dev (<<3.7.8), libvolk-dev, libvolk1.0-dev
 Replaces: gnuradio-dev (<<3.7.8), libvolk-dev, libvolk1.0-dev
 Multi-Arch: same
@@ -53,7 +57,7 @@ Package: libvolk1-bin
 Section: libs
 Architecture: any
 Pre-Depends: ${misc:Pre-Depends}
-Depends: libvolk1.3 (=${binary:Version}),
+Depends: libvolk1.4 (=${binary:Version}),
          ${misc:Depends},
          ${python:Depends},
          ${shlibs:Depends}

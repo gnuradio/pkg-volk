@@ -1,6 +1,4 @@
 native-armv7-build-support
 make-acc-happy
 sort-cmake-glob-lists
-install-all-headers
-sort-input-files
 libm-link

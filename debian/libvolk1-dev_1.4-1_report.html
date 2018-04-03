@@ -1,0 +1,1069 @@
+<!-- kind:binary;verdict:incompatible;affected:0.2;added:45;removed:0;type_problems_high:0;type_problems_medium:0;type_problems_low:1;interface_problems_high:1;interface_problems_medium:0;interface_problems_low:0;changed_constants:1;tool_version:2.2 -->
+<!-- kind:source;verdict:incompatible;affected:0.9;added:46;removed:5;type_problems_high:0;type_problems_medium:0;type_problems_low:1;interface_problems_high:1;interface_problems_medium:0;interface_problems_low:0;changed_constants:1;constant_changes_other:2;tool_version:2.2 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="libvolk1-dev, compatibility, API, ABI, report" />
+<meta name="description" content="API/ABI compatibility report for the libvolk1-dev library between 1.3-3 and 1.4-1 versions" />
+<title>libvolk1-dev: 1.3-3 to 1.4-1 compatibility report</title>
+<style type="text/css">
+body {
+    font-family:Arial, sans-serif;
+    background-color:White;
+    color:Black;
+}
+hr {
+    color:Black;
+    background-color:Black;
+    height:1px;
+    border:0;
+}
+h1 {
+    margin-bottom:0px;
+    padding-bottom:0px;
+    font-size:1.625em;
+}
+h2 {
+    margin-bottom:0px;
+    padding-bottom:0px;
+    font-size:1.25em;
+    white-space:nowrap;
+}
+span.section {
+    font-weight:bold;
+    cursor:pointer;
+    color:#003E69;
+    white-space:nowrap;
+    margin-left:0.3125em;
+}
+span.new_sign {
+    font-weight:bold;
+    margin-left:1.65em;
+    color:#003E69;
+}
+span.new_sign_lbl {
+    margin-left:3em;
+    font-size:1em;
+    color:Black;
+}
+span:hover.section {
+    color:#336699;
+}
+span.sect_aff {
+    cursor:pointer;
+    padding-left:1.55em;
+    font-size:0.875em;
+    color:#cc3300;
+}
+span.sect_info {
+    cursor:pointer;
+    padding-left:1.55em;
+    font-size:0.875em;
+    color:Black;
+}
+span.ext {
+    font-weight:normal;
+}
+span.h_name {
+    color:#cc3300;
+    font-size:0.875em;
+    font-weight:bold;
+}
+div.h_list, div.lib_list {
+    font-size:0.94em;
+    padding-left:0.4em;
+}
+span.ns {
+    color:#408080;
+    font-size:0.94em;
+}
+span.lib_name {
+    color:Green;
+    font-size:0.875em;
+    font-weight:bold;
+}
+span.iname {
+    font-weight:bold;
+    color:#003E69;
+    margin-left:0.3125em;
+}
+span.iname_b {
+    font-weight:bold;
+}
+span.iname_a {
+    color:#333333;
+    font-weight:bold;
+    font-size:0.94em;
+}
+span.sym_p {
+    font-weight:normal;
+    white-space:normal;
+}
+span.sym_pd {
+    white-space:normal;
+}
+span.sym_p span, span.sym_pd span {
+    white-space:nowrap;
+}
+div.affect {
+    padding-left:1em;
+    padding-bottom:10px;
+    font-size:0.87em;
+    font-style:italic;
+    line-height:0.9em;
+}
+div.affected {
+    padding-left:1.9em;
+    padding-top:10px;
+}
+table.ptable {
+    border-collapse:collapse;
+    border:1px outset black;
+    margin-left:0.95em;
+    margin-top:3px;
+    margin-bottom:3px;
+    width:56.25em;
+}
+table.ptable td {
+    border:1px solid gray;
+    padding:3px;
+    font-size:0.875em;
+    text-align:left;
+    vertical-align:top;
+    max-width:28em;
+    word-wrap:break-word;
+}
+table.ptable th.pn {
+    width:2%;
+}
+table.ptable th.chg {
+    width:47%;
+}
+table.vtable {
+    border-collapse:collapse;
+    border:1px outset black;
+    margin-left:1.9em;
+    margin-top:0.7em;
+}
+table.vtable td {
+    border:1px solid gray;
+    padding:3px;
+    font-size:0.875em;
+    vertical-align:top;
+    max-width:450px;
+    word-wrap:break-word;
+}
+table.ptable th, table.vtable th {
+    background-color:#eeeeee;
+    font-weight:bold;
+    color:#333333;
+    font-family:Verdana, Arial;
+    font-size:0.875em;
+    border:1px solid gray;
+    text-align:center;
+    vertical-align:top;
+    white-space:nowrap;
+    padding:3px;
+}
+table.summary {
+    border-collapse:collapse;
+    border:1px outset black;
+}
+table.summary th {
+    background-color:#eeeeee;
+    font-weight:normal;
+    text-align:left;
+    font-size:0.94em;
+    white-space:nowrap;
+    border:1px inset gray;
+    padding:3px;
+}
+table.summary td {
+    text-align:right;
+    white-space:nowrap;
+    border:1px inset gray;
+    padding:3px 5px 3px 10px;
+}
+span.mngl {
+    padding-left:1em;
+    font-size:0.875em;
+    cursor:text;
+    color:#444444;
+    font-weight:bold;
+}
+span.pleft {
+    padding-left:2.5em;
+}
+span.sym_ver {
+    color:#333333;
+    white-space:nowrap;
+    font-family:"DejaVu Sans Mono", Monospace;
+}
+span.attr {
+    color:#333333;
+    font-weight:normal;
+}
+span.color_p {
+    font-style:italic;
+    color:Brown;
+}
+span.p {
+    font-style:italic;
+}
+span.fp {
+    font-style:italic;
+    background-color:#DCDCDC;
+}
+span.ttype {
+    font-weight:normal;
+}
+span.nowrap {
+    white-space:nowrap;
+}
+span.value {
+    font-weight:bold;
+}
+.passed {
+    background-color:#CCFFCC;
+    font-weight:normal;
+}
+.warning {
+    background-color:#F4F4AF;
+    font-weight:normal;
+}
+.failed {
+    background-color:#FFCCCC;
+    font-weight:normal;
+}
+.new {
+    background-color:#C6DEFF;
+    font-weight:normal;
+}
+.compatible {
+    background-color:#CCFFCC;
+    font-weight:normal;
+}
+.almost_compatible {
+    background-color:#FFDAA3;
+    font-weight:normal;
+}
+.incompatible {
+    background-color:#FFCCCC;
+    font-weight:normal;
+}
+.gray {
+    background-color:#DCDCDC;
+    font-weight:normal;
+}
+.top_ref {
+    font-size:0.69em;
+}
+.footer {
+    font-size:0.75em;
+}
+
+.tabset {
+    float:left;
+}
+a.tab {
+    border:1px solid Black;
+    float:left;
+    margin:0px 5px -1px 0px;
+    padding:3px 5px 3px 5px;
+    position:relative;
+    font-size:0.875em;
+    background-color:#DDD;
+    text-decoration:none;
+    color:Black;
+}
+a.disabled:hover
+{
+    color:Black;
+    background:#EEE;
+}
+a.active:hover
+{
+    color:Black;
+    background:White;
+}
+a.active {
+    border-bottom-color:White;
+    background-color:White;
+}
+div.tab {
+    border-top:1px solid Black;
+    padding:0px;
+    width:100%;
+    clear:both;
+}
+</style>
+<script type="text/javascript" language="JavaScript">
+<!--
+function showContent(header, id)
+{
+    e = document.getElementById(id);
+    if(e.style.display == 'none')
+    {
+        e.style.display = 'block';
+        e.style.visibility = 'visible';
+        header.innerHTML = header.innerHTML.replace(/\[[^0-9 ]\]/gi,"[&minus;]");
+    }
+    else
+    {
+        e.style.display = 'none';
+        e.style.visibility = 'hidden';
+        header.innerHTML = header.innerHTML.replace(/\[[^0-9 ]\]/gi,"[+]");
+    }
+}
+function initTabs()
+{
+    var url = window.location.href;
+    if(url.indexOf('_Source_')!=-1 || url.indexOf('#Source')!=-1)
+    {
+        var tab1 = document.getElementById('BinaryID');
+        var tab2 = document.getElementById('SourceID');
+        tab1.className='tab disabled';
+        tab2.className='tab active';
+    }
+    var sets = document.getElementsByTagName('div');
+    for (var i = 0; i < sets.length; i++)
+    {
+        if (sets[i].className.indexOf('tabset') != -1)
+        {
+            var tabs = [];
+            var links = sets[i].getElementsByTagName('a');
+            for (var j = 0; j < links.length; j++)
+            {
+                if (links[j].className.indexOf('tab') != -1)
+                {
+                    tabs.push(links[j]);
+                    links[j].tabs = tabs;
+                    var tab = document.getElementById(links[j].href.substr(links[j].href.indexOf('#') + 1));
+                    //reset all tabs on start
+                    if (tab)
+                    {
+                        if (links[j].className.indexOf('active')!=-1) {
+                            tab.style.display = 'block';
+                        }
+                        else {
+                            tab.style.display = 'none';
+                        }
+                    }
+                    links[j].onclick = function()
+                    {
+                        var tab = document.getElementById(this.href.substr(this.href.indexOf('#') + 1));
+                        if (tab)
+                        {
+                            //reset all tabs before change
+                            for (var k = 0; k < this.tabs.length; k++)
+                            {
+                                document.getElementById(this.tabs[k].href.substr(this.tabs[k].href.indexOf('#') + 1)).style.display = 'none';
+                                this.tabs[k].className = this.tabs[k].className.replace('active', 'disabled');
+                            }
+                            this.className = 'tab active';
+                            tab.style.display = 'block';
+                            // window.location.hash = this.id.replace('ID', '');
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if(url.indexOf('#')!=-1) {
+        location.href=location.href;
+    }
+}
+if (window.addEventListener) window.addEventListener('load', initTabs, false);
+else if (window.attachEvent) window.attachEvent('onload', initTabs);
+-->
+</script>
+</head>
+<body><a name='Source'></a><a name='Binary'></a><a name='Top'></a><h1>API compatibility report for the <span style='color:Blue;'>libvolk1-dev</span> library between <span style='color:Red;'>1.3-3</span> and <span style='color:Red;'>1.4-1</span> versions on <span style='color:Blue;'>x86_64</span></h1>
+
+            <br/>
+            <div class='tabset'>
+            <a id='BinaryID' href='#BinaryTab' class='tab active'>Binary<br/>Compatibility</a>
+            <a id='SourceID' href='#SourceTab' style='margin-left:3px' class='tab disabled'>Source<br/>Compatibility</a>
+            </div><div id='BinaryTab' class='tab'>
+<h2>Test Info</h2><hr/>
+<table class='summary'>
+<tr><th>Library Name</th><td>libvolk1-dev</td></tr>
+<tr><th>Version #1</th><td>1.3-3</td></tr>
+<tr><th>Version #2</th><td>1.4-1</td></tr>
+<tr><th>Arch</th><td>x86_64</td></tr>
+<tr><th>GCC Version</th><td>7</td></tr>
+<tr><th>Subject</th><td width='150px'>Binary Compatibility</td></tr>
+</table>
+<h2>Test Results</h2><hr/>
+<table class='summary'><tr><th>Total Header Files</th><td><a href='#Headers' style='color:Blue;'>135</a></td></tr>
+<tr><th>Total Libraries</th><td><a href='#Libs' style='color:Blue;'>1</a></td></tr>
+<tr><th>Total Symbols / Types</th><td>614 / 233</td></tr>
+<tr><th>Compatibility</th>
+<td class='warning'>99.8%</td>
+</tr>
+</table>
+<h2>Problem Summary</h2><hr/>
+<table class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Symbols</th><td>-</td><td class='new'><a href='#Binary_Added' style='color:Blue;'>45</a></td></tr>
+<tr><th>Removed Symbols</th><td>High</td><td>0</td></tr>
+<tr><th rowspan='3'>Problems with<br/>Data Types</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td class='warning'><a href='#Type_Binary_Problems_Low' style='color:Blue;'>1</a></td></tr>
+<tr><th rowspan='3'>Problems with<br/>Symbols</th><td>High</td><td class='failed'><a href='#Symbol_Binary_Problems_High' style='color:Blue;'>1</a></td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td>0</td></tr>
+<tr><th>Problems with<br/>Constants</th><td>Low</td><td class='warning'><a href='#Constant_Binary_Problems_Low' style='color:Blue;'>1</a></td></tr>
+</table>
+
+<a name='Binary_Added'></a><h2>Added Symbols <span class='new'>&nbsp;45&nbsp;</span></h2><hr/>
+<span class='h_name'>volk.h</span>, <span class='lib_name'>libvolk.so.1.4</span><br/>
+<span class="iname">volk_32f_64f_add_64f <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_64f_add_64f_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_64f_add_64f_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_32f_64f_add_64f_manual&#160;<span class='sym_p'><span>(&#160;double* <span class='color_p'>cVector</span></span>, <span>float const* <span class='color_p'>aVector</span></span>, <span>double const* <span class='color_p'>bVector</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_32f_64f_add_64f_u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_64f_multiply_64f <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_64f_multiply_64f_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_64f_multiply_64f_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_32f_64f_multiply_64f_manual&#160;<span class='sym_p'><span>(&#160;double* <span class='color_p'>cVector</span></span>, <span>float const* <span class='color_p'>aVector</span></span>, <span>double const* <span class='color_p'>bVector</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_32f_64f_multiply_64f_u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_s32f_mod_rangepuppet_32f <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_s32f_mod_rangepuppet_32f_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_s32f_mod_rangepuppet_32f_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_32f_s32f_mod_rangepuppet_32f_manual&#160;<span class='sym_p'><span>(&#160;float* <span class='color_p'>output</span></span>, <span>float const* <span class='color_p'>input</span></span>, <span>float <span class='color_p'>bound</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_32f_s32f_mod_rangepuppet_32f_u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_s32f_s32f_mod_range_32f <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_s32f_s32f_mod_range_32f_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_s32f_s32f_mod_range_32f_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_32f_s32f_s32f_mod_range_32f_manual&#160;<span class='sym_p'><span>(&#160;float* <span class='color_p'>outputVector</span></span>, <span>float const* <span class='color_p'>inputVector</span></span>, <span>float const <span class='color_p'>lower_bound</span></span>, <span>float const <span class='color_p'>upper_bound</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_32f_s32f_s32f_mod_range_32f_u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32fc_32f_add_32fc <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32fc_32f_add_32fc_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32fc_32f_add_32fc_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_32fc_32f_add_32fc_manual&#160;<span class='sym_p'><span>(&#160;lv_32fc_t* <span class='color_p'>cVector</span></span>, <span>lv_32fc_t const* <span class='color_p'>aVector</span></span>, <span>float const* <span class='color_p'>bVector</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_32fc_32f_add_32fc_u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32fc_x2_add_32fc <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32fc_x2_add_32fc_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32fc_x2_add_32fc_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_32fc_x2_add_32fc_manual&#160;<span class='sym_p'><span>(&#160;lv_32fc_t* <span class='color_p'>cVector</span></span>, <span>lv_32fc_t const* <span class='color_p'>aVector</span></span>, <span>lv_32fc_t const* <span class='color_p'>bVector</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_32fc_x2_add_32fc_u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32u_reverse_32u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32u_reverse_32u_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32u_reverse_32u_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_32u_reverse_32u_manual&#160;<span class='sym_p'><span>(&#160;uint32_t* <span class='color_p'>out</span></span>, <span>uint32_t const* <span class='color_p'>in</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_32u_reverse_32u_u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_64f_x2_add_64f <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_64f_x2_add_64f_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_64f_x2_add_64f_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_64f_x2_add_64f_manual&#160;<span class='sym_p'><span>(&#160;double* <span class='color_p'>cVector</span></span>, <span>double const* <span class='color_p'>aVector</span></span>, <span>double const* <span class='color_p'>bVector</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_64f_x2_add_64f_u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_64f_x2_multiply_64f <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_64f_x2_multiply_64f_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_64f_x2_multiply_64f_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_64f_x2_multiply_64f_manual&#160;<span class='sym_p'><span>(&#160;double* <span class='color_p'>cVector</span></span>, <span>double const* <span class='color_p'>aVector</span></span>, <span>double const* <span class='color_p'>bVector</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_64f_x2_multiply_64f_u <span class='attr'>[data]</span></span><br/>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='High_Risk_Binary_Problems'></a><a name='Symbol_Binary_Problems_High'></a><a name='Interface_Binary_Problems_High'></a>
+<h2>Problems with Symbols, High Severity <span class='failed'>&nbsp;1&nbsp;</span></h2><hr/>
+<span class='h_name'>volk.h</span>, <span class='lib_name'>libvolk.so.1.3</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_1')">
+<span class='ext'>[+]</span> volk_32f_8u_polarbutterfly_32f_manual&#160;<span class='sym_p'><span>(&#160;float* <span class='color_p'>llrs</span></span>, <span>unsigned char* <span class='color_p'>u</span></span>, <span>int const <span class='color_p'>frame_size</span></span>, <span>int const <span class='color_p'>frame_exp</span></span>, <span>int const <span class='color_p'>stage</span></span>, <span>int const <span class='color_p'>u_num</span></span>, <span>int const <span class='color_p'>row</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span> <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_1" style="display:none;">
+
+
+<span class='new_sign_lbl'>&#8675;</span>
+<br/>
+<span class='new_sign'>volk_32f_8u_polarbutterfly_32f_manual&#160;<span class='sym_p'><span>(&#160;float* <span class='color_p'>llrs</span></span>, <span>unsigned char* <span class='color_p'>u</span></span>, <span>int const <span class='color_p'>frame_exp</span></span>, <span>int const <span class='color_p'>stage</span></span>, <span>int const <span class='color_p'>u_num</span></span>, <span>int const <span class='color_p'>row</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td><b>3rd</b> middle parameter <b>frame_size</b> has been removed from the calling stack.</td>
+<td>Layout of parameter's stack has been changed and therefore parameters at higher positions in the stack may be incorrectly initialized by applications.</td>
+</tr>
+</table>
+<br/>
+</div>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Low_Risk_Binary_Problems'></a><a name='Type_Binary_Problems_Low'></a>
+<h2>Problems with Data Types, Low Severity <span class='warning'>&nbsp;1&nbsp;</span></h2><hr/>
+<span class='h_name'>volk_typedefs.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_2')">
+<span class='ext'>[+]</span> <span class='ttype'>typedef</span> p_32f_8u_polarbutterfly_32f <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_2" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Base type has been changed from <span class='value'>void(*)(float*, unsigned char*, int, int, int, int, int)</span> to <span class='value'>void(*)(float*, unsigned char*, int, int, int, int)</span>.</td>
+<td>Replacement of the base data type may indicate a change in its semantic meaning.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_3')">
+[+] affected symbols: 3 (0.5%)</span>
+<div id="c_3" style="display:none;">
+<div class='affected'><span class='iname_a'>volk_32f_8u_polarbutterfly_32f <span class='attr'>[data]</span></span><br/>
+<div class='affect'>Return value is of type &#39;p_32f_8u_polarbutterfly_32f&#39;.</div>
+<span class='iname_a'>volk_32f_8u_polarbutterfly_32f_a <span class='attr'>[data]</span></span><br/>
+<div class='affect'>Return value is of type &#39;p_32f_8u_polarbutterfly_32f&#39;.</div>
+<span class='iname_a'>volk_32f_8u_polarbutterfly_32f_u <span class='attr'>[data]</span></span><br/>
+<div class='affect'>Return value is of type &#39;p_32f_8u_polarbutterfly_32f&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Constant_Binary_Problems_Low'></a>
+<h2>Problems with Constants, Low Severity <span class='warning'>&nbsp;1&nbsp;</span></h2><hr/>
+<span class='h_name'>volk_32f_log2_32f.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_4')">
+<span class='ext'>[+]</span> LOG_POLY_DEGREE</span>
+<br/>
+<div id="c_4" style="display:none;">
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td>The constant <b>LOG_POLY_DEGREE</b> with value <b>6</b> has been removed.</td>
+<td>The value of this constant may no longer be properly handled by new-version library functions.</td>
+</tr>
+</table>
+<br/>
+</div>
+
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Headers'></a><h2>Header Files <span class='gray'>&nbsp;135&nbsp;</span></h2><hr/>
+<div class='h_list'>
+constants.h<br/>
+saturation_arithmetic.h<br/>
+volk.h<br/>
+volk_16i_32fc_dot_prod_32fc.h<br/>
+volk_16i_branch_4_state_8.h<br/>
+volk_16i_convert_8i.h<br/>
+volk_16i_max_star_16i.h<br/>
+volk_16i_max_star_horizontal_16i.h<br/>
+volk_16i_permute_and_scalar_add.h<br/>
+volk_16i_s32f_convert_32f.h<br/>
+volk_16i_x4_quad_max_star_16i.h<br/>
+volk_16i_x5_add_quad_16i_x4.h<br/>
+volk_16ic_convert_32fc.h<br/>
+volk_16ic_deinterleave_16i_x2.h<br/>
+volk_16ic_deinterleave_real_16i.h<br/>
+volk_16ic_deinterleave_real_8i.h<br/>
+volk_16ic_magnitude_16i.h<br/>
+volk_16ic_s32f_deinterleave_32f_x2.h<br/>
+volk_16ic_s32f_deinterleave_real_32f.h<br/>
+volk_16ic_s32f_magnitude_32f.h<br/>
+volk_16ic_x2_dot_prod_16ic.h<br/>
+volk_16ic_x2_multiply_16ic.h<br/>
+volk_16u_byteswap.h<br/>
+volk_16u_byteswappuppet_16u.h<br/>
+volk_32f_8u_polarbutterfly_32f.h<br/>
+volk_32f_8u_polarbutterflypuppet_32f.h<br/>
+volk_32f_accumulator_s32f.h<br/>
+volk_32f_acos_32f.h<br/>
+volk_32f_asin_32f.h<br/>
+volk_32f_atan_32f.h<br/>
+volk_32f_binary_slicer_32i.h<br/>
+volk_32f_binary_slicer_8i.h<br/>
+volk_32f_convert_64f.h<br/>
+volk_32f_cos_32f.h<br/>
+volk_32f_expfast_32f.h<br/>
+volk_32f_index_max_16u.h<br/>
+volk_32f_index_max_32u.h<br/>
+volk_32f_invsqrt_32f.h<br/>
+volk_32f_log2_32f.h<br/>
+volk_32f_null_32f.h<br/>
+volk_32f_s32f_32f_fm_detect_32f.h<br/>
+volk_32f_s32f_calc_spectral_noise_floor_32f.h<br/>
+volk_32f_s32f_convert_16i.h<br/>
+volk_32f_s32f_convert_32i.h<br/>
+volk_32f_s32f_convert_8i.h<br/>
+volk_32f_s32f_multiply_32f.h<br/>
+volk_32f_s32f_normalize.h<br/>
+volk_32f_s32f_power_32f.h<br/>
+volk_32f_s32f_stddev_32f.h<br/>
+volk_32f_sin_32f.h<br/>
+volk_32f_sqrt_32f.h<br/>
+volk_32f_stddev_and_mean_32f_x2.h<br/>
+volk_32f_tan_32f.h<br/>
+volk_32f_tanh_32f.h<br/>
+volk_32f_x2_add_32f.h<br/>
+volk_32f_x2_divide_32f.h<br/>
+volk_32f_x2_dot_prod_16i.h<br/>
+volk_32f_x2_dot_prod_32f.h<br/>
+volk_32f_x2_fm_detectpuppet_32f.h<br/>
+volk_32f_x2_interleave_32fc.h<br/>
+volk_32f_x2_max_32f.h<br/>
+volk_32f_x2_min_32f.h<br/>
+volk_32f_x2_multiply_32f.h<br/>
+volk_32f_x2_pow_32f.h<br/>
+volk_32f_x2_s32f_interleave_16ic.h<br/>
+volk_32f_x2_subtract_32f.h<br/>
+volk_32f_x3_sum_of_poly_32f.h<br/>
+volk_32fc_32f_dot_prod_32fc.h<br/>
+volk_32fc_32f_multiply_32fc.h<br/>
+volk_32fc_conjugate_32fc.h<br/>
+volk_32fc_convert_16ic.h<br/>
+volk_32fc_deinterleave_32f_x2.h<br/>
+volk_32fc_deinterleave_64f_x2.h<br/>
+volk_32fc_deinterleave_imag_32f.h<br/>
+volk_32fc_deinterleave_real_32f.h<br/>
+volk_32fc_deinterleave_real_64f.h<br/>
+volk_32fc_index_max_16u.h<br/>
+volk_32fc_index_max_32u.h<br/>
+volk_32fc_magnitude_32f.h<br/>
+volk_32fc_magnitude_squared_32f.h<br/>
+volk_32fc_s32f_atan2_32f.h<br/>
+volk_32fc_s32f_deinterleave_real_16i.h<br/>
+volk_32fc_s32f_magnitude_16i.h<br/>
+volk_32fc_s32f_power_32fc.h<br/>
+volk_32fc_s32f_power_spectrum_32f.h<br/>
+volk_32fc_s32f_x2_power_spectral_density_32f.h<br/>
+volk_32fc_s32fc_multiply_32fc.h<br/>
+volk_32fc_s32fc_rotatorpuppet_32fc.h<br/>
+volk_32fc_s32fc_x2_rotator_32fc.h<br/>
+volk_32fc_x2_conjugate_dot_prod_32fc.h<br/>
+volk_32fc_x2_divide_32fc.h<br/>
+volk_32fc_x2_dot_prod_32fc.h<br/>
+volk_32fc_x2_multiply_32fc.h<br/>
+volk_32fc_x2_multiply_conjugate_32fc.h<br/>
+volk_32fc_x2_s32f_square_dist_scalar_mult_32f.h<br/>
+volk_32fc_x2_square_dist_32f.h<br/>
+volk_32i_s32f_convert_32f.h<br/>
+volk_32i_x2_and_32i.h<br/>
+volk_32i_x2_or_32i.h<br/>
+volk_32u_byteswap.h<br/>
+volk_32u_byteswappuppet_32u.h<br/>
+volk_32u_popcnt.h<br/>
+volk_32u_popcntpuppet_32u.h<br/>
+volk_64f_convert_32f.h<br/>
+volk_64f_x2_max_64f.h<br/>
+volk_64f_x2_min_64f.h<br/>
+volk_64u_byteswap.h<br/>
+volk_64u_byteswappuppet_64u.h<br/>
+volk_64u_popcnt.h<br/>
+volk_64u_popcntpuppet_64u.h<br/>
+volk_8i_convert_16i.h<br/>
+volk_8i_s32f_convert_32f.h<br/>
+volk_8ic_deinterleave_16i_x2.h<br/>
+volk_8ic_deinterleave_real_16i.h<br/>
+volk_8ic_deinterleave_real_8i.h<br/>
+volk_8ic_s32f_deinterleave_32f_x2.h<br/>
+volk_8ic_s32f_deinterleave_real_32f.h<br/>
+volk_8ic_x2_multiply_conjugate_16ic.h<br/>
+volk_8ic_x2_s32f_multiply_conjugate_32fc.h<br/>
+volk_8u_conv_k7_r2puppet_8u.h<br/>
+volk_8u_x2_encodeframepolar_8u.h<br/>
+volk_8u_x3_encodepolar_8u_x2.h<br/>
+volk_8u_x3_encodepolarpuppet_8u.h<br/>
+volk_8u_x4_conv_k7_r2_8u.h<br/>
+volk_avx_intrinsics.h<br/>
+volk_common.h<br/>
+volk_complex.h<br/>
+volk_config_fixed.h<br/>
+volk_cpu.h<br/>
+volk_malloc.h<br/>
+volk_neon_intrinsics.h<br/>
+volk_prefs.h<br/>
+volk_sse3_intrinsics.h<br/>
+volk_sse_intrinsics.h<br/>
+volk_typedefs.h<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Libs'></a><h2>Libraries <span class='gray'>&nbsp;1&nbsp;</span></h2><hr/>
+<div class='lib_list'>
+libvolk.so.1.3<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<br/><br/><br/></div><div id='SourceTab' class='tab'>
+<h2>Test Info</h2><hr/>
+<table class='summary'>
+<tr><th>Library Name</th><td>libvolk1-dev</td></tr>
+<tr><th>Version #1</th><td>1.3-3</td></tr>
+<tr><th>Version #2</th><td>1.4-1</td></tr>
+<tr><th>Arch</th><td>x86_64</td></tr>
+<tr><th>Subject</th><td width='150px'>Source Compatibility</td></tr>
+</table>
+<h2>Test Results</h2><hr/>
+<table class='summary'><tr><th>Total Header Files</th><td><a href='#Headers' style='color:Blue;'>135</a></td></tr>
+<tr><th>Total Libraries</th><td><a href='#Libs' style='color:Blue;'>1</a></td></tr>
+<tr><th>Total Symbols / Types</th><td>660 / 235</td></tr>
+<tr><th>Compatibility</th>
+<td class='warning'>99.1%</td>
+</tr>
+</table>
+<h2>Problem Summary</h2><hr/>
+<table class='summary'><tr><th></th><th style='text-align:center;'>Severity</th><th style='text-align:center;'>Count</th></tr><tr><th>Added Symbols</th><td>-</td><td class='new'><a href='#Source_Added' style='color:Blue;'>46</a></td></tr>
+<tr><th>Removed Symbols</th><td>High</td><td class='failed'><a href='#Source_Removed' style='color:Blue;'>5</a></td></tr>
+<tr><th rowspan='3'>Problems with<br/>Data Types</th><td>High</td><td>0</td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td class='warning'><a href='#Type_Source_Problems_Low' style='color:Blue;'>1</a></td></tr>
+<tr><th rowspan='3'>Problems with<br/>Symbols</th><td>High</td><td class='failed'><a href='#Symbol_Source_Problems_High' style='color:Blue;'>1</a></td></tr>
+<tr><td>Medium</td><td>0</td></tr>
+<tr><td>Low</td><td>0</td></tr>
+<tr><th>Problems with<br/>Constants</th><td>Low</td><td class='warning'><a href='#Constant_Source_Problems_Low' style='color:Blue;'>1</a></td></tr>
+<tr><th>Other Changes<br/>in Constants</th><td>-</td><td class='passed'><a href='#Other_Source_Changes_In_Constants' style='color:Blue;'>2</a></td></tr>
+</table>
+
+<a name='Source_Added'></a><h2>Added Symbols <span class='new'>&nbsp;46&nbsp;</span></h2><hr/>
+<span class='h_name'>volk.h</span><br/>
+<span class="iname">volk_32f_64f_add_64f <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_64f_add_64f_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_64f_add_64f_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_32f_64f_add_64f_manual&#160;<span class='sym_p'><span>(&#160;double* <span class='color_p'>cVector</span></span>, <span>float const* <span class='color_p'>aVector</span></span>, <span>double const* <span class='color_p'>bVector</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_32f_64f_add_64f_u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_64f_multiply_64f <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_64f_multiply_64f_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_64f_multiply_64f_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_32f_64f_multiply_64f_manual&#160;<span class='sym_p'><span>(&#160;double* <span class='color_p'>cVector</span></span>, <span>float const* <span class='color_p'>aVector</span></span>, <span>double const* <span class='color_p'>bVector</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_32f_64f_multiply_64f_u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_s32f_mod_rangepuppet_32f <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_s32f_mod_rangepuppet_32f_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_s32f_mod_rangepuppet_32f_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_32f_s32f_mod_rangepuppet_32f_manual&#160;<span class='sym_p'><span>(&#160;float* <span class='color_p'>output</span></span>, <span>float const* <span class='color_p'>input</span></span>, <span>float <span class='color_p'>bound</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_32f_s32f_mod_rangepuppet_32f_u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_s32f_s32f_mod_range_32f <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_s32f_s32f_mod_range_32f_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32f_s32f_s32f_mod_range_32f_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_32f_s32f_s32f_mod_range_32f_manual&#160;<span class='sym_p'><span>(&#160;float* <span class='color_p'>outputVector</span></span>, <span>float const* <span class='color_p'>inputVector</span></span>, <span>float const <span class='color_p'>lower_bound</span></span>, <span>float const <span class='color_p'>upper_bound</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_32f_s32f_s32f_mod_range_32f_u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32fc_32f_add_32fc <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32fc_32f_add_32fc_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32fc_32f_add_32fc_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_32fc_32f_add_32fc_manual&#160;<span class='sym_p'><span>(&#160;lv_32fc_t* <span class='color_p'>cVector</span></span>, <span>lv_32fc_t const* <span class='color_p'>aVector</span></span>, <span>float const* <span class='color_p'>bVector</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_32fc_32f_add_32fc_u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32fc_x2_add_32fc <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32fc_x2_add_32fc_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32fc_x2_add_32fc_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_32fc_x2_add_32fc_manual&#160;<span class='sym_p'><span>(&#160;lv_32fc_t* <span class='color_p'>cVector</span></span>, <span>lv_32fc_t const* <span class='color_p'>aVector</span></span>, <span>lv_32fc_t const* <span class='color_p'>bVector</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_32fc_x2_add_32fc_u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32u_reverse_32u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32u_reverse_32u_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_32u_reverse_32u_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_32u_reverse_32u_manual&#160;<span class='sym_p'><span>(&#160;uint32_t* <span class='color_p'>out</span></span>, <span>uint32_t const* <span class='color_p'>in</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_32u_reverse_32u_u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_64f_x2_add_64f <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_64f_x2_add_64f_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_64f_x2_add_64f_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_64f_x2_add_64f_manual&#160;<span class='sym_p'><span>(&#160;double* <span class='color_p'>cVector</span></span>, <span>double const* <span class='color_p'>aVector</span></span>, <span>double const* <span class='color_p'>bVector</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_64f_x2_add_64f_u <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_64f_x2_multiply_64f <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_64f_x2_multiply_64f_a <span class='attr'>[data]</span></span><br/>
+<span class="iname">volk_64f_x2_multiply_64f_get_func_desc&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_64f_x2_multiply_64f_manual&#160;<span class='sym_p'><span>(&#160;double* <span class='color_p'>cVector</span></span>, <span>double const* <span class='color_p'>aVector</span></span>, <span>double const* <span class='color_p'>bVector</span></span>, <span>unsigned int <span class='color_p'>num_points</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<span class="iname">volk_64f_x2_multiply_64f_u <span class='attr'>[data]</span></span><br/>
+<br/>
+<span class='h_name'>volk_32u_reverse_32u.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_5')">
+BitReverseTable256 <span class='attr'>[data]</span></span>
+<br/>
+<div id="c_5" style="display:none;">
+<span class='mngl'>_ZL18BitReverseTable256</span>
+<br/>
+<br/>
+</div>
+
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Source_Removed'></a><a name='Source_Withdrawn'></a><h2>Removed Symbols <span class='failed'>&nbsp;5&nbsp;</span></h2><hr/>
+<span class='h_name'>constants.h</span><br/>
+<span class="iname">volk_available_machines&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_c_compiler&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_compiler_flags&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_prefix&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<span class="iname">volk_version&#160;<span class='sym_p'>(&#160;)</span></span><br/>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='High_Risk_Source_Problems'></a><a name='Symbol_Source_Problems_High'></a><a name='Interface_Source_Problems_High'></a>
+<h2>Problems with Symbols, High Severity <span class='failed'>&nbsp;1&nbsp;</span></h2><hr/>
+<span class='h_name'>volk.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_6')">
+<span class='ext'>[+]</span> volk_32f_8u_polarbutterfly_32f_manual&#160;<span class='sym_p'><span>(&#160;float* <span class='color_p'>llrs</span></span>, <span>unsigned char* <span class='color_p'>u</span></span>, <span>int const <span class='color_p'>frame_size</span></span>, <span>int const <span class='color_p'>frame_exp</span></span>, <span>int const <span class='color_p'>stage</span></span>, <span>int const <span class='color_p'>u_num</span></span>, <span>int const <span class='color_p'>row</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span> <span class='failed'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_6" style="display:none;">
+
+
+<span class='new_sign_lbl'>&#8675;</span>
+<br/>
+<span class='new_sign'>volk_32f_8u_polarbutterfly_32f_manual&#160;<span class='sym_p'><span>(&#160;float* <span class='color_p'>llrs</span></span>, <span>unsigned char* <span class='color_p'>u</span></span>, <span>int const <span class='color_p'>frame_exp</span></span>, <span>int const <span class='color_p'>stage</span></span>, <span>int const <span class='color_p'>u_num</span></span>, <span>int const <span class='color_p'>row</span></span>, <span>char const* <span class='color_p'>impl_name</span></span>&#160;)</span></span><br/>
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td><b>3rd</b> middle parameter <b>frame_size</b> has been removed from the calling stack.</td>
+<td>Recompilation of a client program may be broken.</td>
+</tr>
+</table>
+<br/>
+</div>
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Low_Risk_Source_Problems'></a><a name='Type_Source_Problems_Low'></a>
+<h2>Problems with Data Types, Low Severity <span class='warning'>&nbsp;1&nbsp;</span></h2><hr/>
+<span class='h_name'>volk_typedefs.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_7')">
+<span class='ext'>[+]</span> <span class='ttype'>typedef</span> p_32f_8u_polarbutterfly_32f <span class='warning'>&nbsp;1&nbsp;</span></span>
+<br/>
+<div id="c_7" style="display:none;">
+<table class='ptable'><tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th></tr><tr>
+<th>1</th>
+<td>Base type has been changed from <span class='value'>void(*)(float*, unsigned char*, int, int, int, int, int)</span> to <span class='value'>void(*)(float*, unsigned char*, int, int, int, int)</span>.</td>
+<td>Recompilation of a client program may be broken.</td>
+</tr>
+</table>
+<span class="sect_aff" onclick="javascript:showContent(this, 'c_8')">
+[+] affected symbols: 3 (0.5%)</span>
+<div id="c_8" style="display:none;">
+<div class='affected'><span class='iname_a'>volk_32f_8u_polarbutterfly_32f <span class='attr'>[data]</span></span><br/>
+<div class='affect'>Return value is of type &#39;p_32f_8u_polarbutterfly_32f&#39;.</div>
+<span class='iname_a'>volk_32f_8u_polarbutterfly_32f_a <span class='attr'>[data]</span></span><br/>
+<div class='affect'>Return value is of type &#39;p_32f_8u_polarbutterfly_32f&#39;.</div>
+<span class='iname_a'>volk_32f_8u_polarbutterfly_32f_u <span class='attr'>[data]</span></span><br/>
+<div class='affect'>Return value is of type &#39;p_32f_8u_polarbutterfly_32f&#39;.</div>
+</div>
+</div>
+<br/><br/></div>
+
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Constant_Source_Problems_Low'></a>
+<h2>Problems with Constants, Low Severity <span class='warning'>&nbsp;1&nbsp;</span></h2><hr/>
+<span class='h_name'>volk_32f_log2_32f.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_9')">
+<span class='ext'>[+]</span> LOG_POLY_DEGREE</span>
+<br/>
+<div id="c_9" style="display:none;">
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td>The constant <b>LOG_POLY_DEGREE</b> with value <b>6</b> has been removed.</td>
+<td>Recompilation of a client program may be broken.</td>
+</tr>
+</table>
+<br/>
+</div>
+
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Other_Source_Changes'></a><a name='Other_Source_Changes_In_Constants'></a>
+<h2>Other Changes in Constants <span class='passed'>&nbsp;2&nbsp;</span></h2><hr/>
+<span class='h_name'>volk_common.h</span><br/>
+<span class="section" onclick="javascript:showContent(this, 'c_10')">
+<span class='ext'>[+]</span> __VOLK_ASM</span>
+<br/>
+<div id="c_10" style="display:none;">
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td>The constant <b>__VOLK_ASM</b> with value <b>__asm__</b> has been added.</td>
+<td>No effect.</td>
+</tr>
+</table>
+<br/>
+</div>
+
+<span class="section" onclick="javascript:showContent(this, 'c_11')">
+<span class='ext'>[+]</span> __VOLK_VOLATILE</span>
+<br/>
+<div id="c_11" style="display:none;">
+<table class='ptable'>
+<tr>
+<th class='pn'></th>
+<th class='chg'>Change</th>
+<th>Effect</th>
+</tr>
+<tr>
+<th>1</th>
+<td>The constant <b>__VOLK_VOLATILE</b> with value <b>__volatile__</b> has been added.</td>
+<td>No effect.</td>
+</tr>
+</table>
+<br/>
+</div>
+
+<br/>
+<a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Headers'></a><h2>Header Files <span class='gray'>&nbsp;135&nbsp;</span></h2><hr/>
+<div class='h_list'>
+constants.h<br/>
+saturation_arithmetic.h<br/>
+volk.h<br/>
+volk_16i_32fc_dot_prod_32fc.h<br/>
+volk_16i_branch_4_state_8.h<br/>
+volk_16i_convert_8i.h<br/>
+volk_16i_max_star_16i.h<br/>
+volk_16i_max_star_horizontal_16i.h<br/>
+volk_16i_permute_and_scalar_add.h<br/>
+volk_16i_s32f_convert_32f.h<br/>
+volk_16i_x4_quad_max_star_16i.h<br/>
+volk_16i_x5_add_quad_16i_x4.h<br/>
+volk_16ic_convert_32fc.h<br/>
+volk_16ic_deinterleave_16i_x2.h<br/>
+volk_16ic_deinterleave_real_16i.h<br/>
+volk_16ic_deinterleave_real_8i.h<br/>
+volk_16ic_magnitude_16i.h<br/>
+volk_16ic_s32f_deinterleave_32f_x2.h<br/>
+volk_16ic_s32f_deinterleave_real_32f.h<br/>
+volk_16ic_s32f_magnitude_32f.h<br/>
+volk_16ic_x2_dot_prod_16ic.h<br/>
+volk_16ic_x2_multiply_16ic.h<br/>
+volk_16u_byteswap.h<br/>
+volk_16u_byteswappuppet_16u.h<br/>
+volk_32f_8u_polarbutterfly_32f.h<br/>
+volk_32f_8u_polarbutterflypuppet_32f.h<br/>
+volk_32f_accumulator_s32f.h<br/>
+volk_32f_acos_32f.h<br/>
+volk_32f_asin_32f.h<br/>
+volk_32f_atan_32f.h<br/>
+volk_32f_binary_slicer_32i.h<br/>
+volk_32f_binary_slicer_8i.h<br/>
+volk_32f_convert_64f.h<br/>
+volk_32f_cos_32f.h<br/>
+volk_32f_expfast_32f.h<br/>
+volk_32f_index_max_16u.h<br/>
+volk_32f_index_max_32u.h<br/>
+volk_32f_invsqrt_32f.h<br/>
+volk_32f_log2_32f.h<br/>
+volk_32f_null_32f.h<br/>
+volk_32f_s32f_32f_fm_detect_32f.h<br/>
+volk_32f_s32f_calc_spectral_noise_floor_32f.h<br/>
+volk_32f_s32f_convert_16i.h<br/>
+volk_32f_s32f_convert_32i.h<br/>
+volk_32f_s32f_convert_8i.h<br/>
+volk_32f_s32f_multiply_32f.h<br/>
+volk_32f_s32f_normalize.h<br/>
+volk_32f_s32f_power_32f.h<br/>
+volk_32f_s32f_stddev_32f.h<br/>
+volk_32f_sin_32f.h<br/>
+volk_32f_sqrt_32f.h<br/>
+volk_32f_stddev_and_mean_32f_x2.h<br/>
+volk_32f_tan_32f.h<br/>
+volk_32f_tanh_32f.h<br/>
+volk_32f_x2_add_32f.h<br/>
+volk_32f_x2_divide_32f.h<br/>
+volk_32f_x2_dot_prod_16i.h<br/>
+volk_32f_x2_dot_prod_32f.h<br/>
+volk_32f_x2_fm_detectpuppet_32f.h<br/>
+volk_32f_x2_interleave_32fc.h<br/>
+volk_32f_x2_max_32f.h<br/>
+volk_32f_x2_min_32f.h<br/>
+volk_32f_x2_multiply_32f.h<br/>
+volk_32f_x2_pow_32f.h<br/>
+volk_32f_x2_s32f_interleave_16ic.h<br/>
+volk_32f_x2_subtract_32f.h<br/>
+volk_32f_x3_sum_of_poly_32f.h<br/>
+volk_32fc_32f_dot_prod_32fc.h<br/>
+volk_32fc_32f_multiply_32fc.h<br/>
+volk_32fc_conjugate_32fc.h<br/>
+volk_32fc_convert_16ic.h<br/>
+volk_32fc_deinterleave_32f_x2.h<br/>
+volk_32fc_deinterleave_64f_x2.h<br/>
+volk_32fc_deinterleave_imag_32f.h<br/>
+volk_32fc_deinterleave_real_32f.h<br/>
+volk_32fc_deinterleave_real_64f.h<br/>
+volk_32fc_index_max_16u.h<br/>
+volk_32fc_index_max_32u.h<br/>
+volk_32fc_magnitude_32f.h<br/>
+volk_32fc_magnitude_squared_32f.h<br/>
+volk_32fc_s32f_atan2_32f.h<br/>
+volk_32fc_s32f_deinterleave_real_16i.h<br/>
+volk_32fc_s32f_magnitude_16i.h<br/>
+volk_32fc_s32f_power_32fc.h<br/>
+volk_32fc_s32f_power_spectrum_32f.h<br/>
+volk_32fc_s32f_x2_power_spectral_density_32f.h<br/>
+volk_32fc_s32fc_multiply_32fc.h<br/>
+volk_32fc_s32fc_rotatorpuppet_32fc.h<br/>
+volk_32fc_s32fc_x2_rotator_32fc.h<br/>
+volk_32fc_x2_conjugate_dot_prod_32fc.h<br/>
+volk_32fc_x2_divide_32fc.h<br/>
+volk_32fc_x2_dot_prod_32fc.h<br/>
+volk_32fc_x2_multiply_32fc.h<br/>
+volk_32fc_x2_multiply_conjugate_32fc.h<br/>
+volk_32fc_x2_s32f_square_dist_scalar_mult_32f.h<br/>
+volk_32fc_x2_square_dist_32f.h<br/>
+volk_32i_s32f_convert_32f.h<br/>
+volk_32i_x2_and_32i.h<br/>
+volk_32i_x2_or_32i.h<br/>
+volk_32u_byteswap.h<br/>
+volk_32u_byteswappuppet_32u.h<br/>
+volk_32u_popcnt.h<br/>
+volk_32u_popcntpuppet_32u.h<br/>
+volk_64f_convert_32f.h<br/>
+volk_64f_x2_max_64f.h<br/>
+volk_64f_x2_min_64f.h<br/>
+volk_64u_byteswap.h<br/>
+volk_64u_byteswappuppet_64u.h<br/>
+volk_64u_popcnt.h<br/>
+volk_64u_popcntpuppet_64u.h<br/>
+volk_8i_convert_16i.h<br/>
+volk_8i_s32f_convert_32f.h<br/>
+volk_8ic_deinterleave_16i_x2.h<br/>
+volk_8ic_deinterleave_real_16i.h<br/>
+volk_8ic_deinterleave_real_8i.h<br/>
+volk_8ic_s32f_deinterleave_32f_x2.h<br/>
+volk_8ic_s32f_deinterleave_real_32f.h<br/>
+volk_8ic_x2_multiply_conjugate_16ic.h<br/>
+volk_8ic_x2_s32f_multiply_conjugate_32fc.h<br/>
+volk_8u_conv_k7_r2puppet_8u.h<br/>
+volk_8u_x2_encodeframepolar_8u.h<br/>
+volk_8u_x3_encodepolar_8u_x2.h<br/>
+volk_8u_x3_encodepolarpuppet_8u.h<br/>
+volk_8u_x4_conv_k7_r2_8u.h<br/>
+volk_avx_intrinsics.h<br/>
+volk_common.h<br/>
+volk_complex.h<br/>
+volk_config_fixed.h<br/>
+volk_cpu.h<br/>
+volk_malloc.h<br/>
+volk_neon_intrinsics.h<br/>
+volk_prefs.h<br/>
+volk_sse3_intrinsics.h<br/>
+volk_sse_intrinsics.h<br/>
+volk_typedefs.h<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<a name='Libs'></a><h2>Libraries <span class='gray'>&nbsp;1&nbsp;</span></h2><hr/>
+<div class='lib_list'>
+libvolk.so.1.3<br/>
+</div>
+<br/><a class='top_ref' href='#Top'>to the top</a><br/>
+<br/><br/><br/></div><hr/>
+<div class='footer' align='right'><i>Generated by <a href='https://github.com/lvc/abi-compliance-checker'>ABI Compliance Checker</a> 2.2 &#160;</i>
+</div>
+<br/>
+
+</body></html>

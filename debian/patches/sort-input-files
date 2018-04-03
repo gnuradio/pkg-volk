@@ -10,21 +10,9 @@ thus without the patch, builds (in disposable VMs) would usually differ.
 
 See https://reproducible-builds.org/ for why this matters.
 ---
- gen/volk_kernel_defs.py                      | 2 +-
  python/volk_modtool/volk_modtool_generate.py | 6 +++---
  2 files changed, 4 insertions(+), 4 deletions(-)
 
---- a/gen/volk_kernel_defs.py
-+++ b/gen/volk_kernel_defs.py
-@@ -202,7 +202,7 @@
- ########################################################################
- __file__ = os.path.abspath(__file__)
- srcdir = os.path.dirname(os.path.dirname(__file__))
--kernel_files = glob.glob(os.path.join(srcdir, "kernels", "volk", "*.h"))
-+kernel_files = sorted(glob.glob(os.path.join(srcdir, "kernels", "volk", "*.h")))
- kernels = map(kernel_class, kernel_files)
- 
- if __name__ == '__main__':
 --- a/python/volk_modtool/volk_modtool_generate.py
 +++ b/python/volk_modtool/volk_modtool_generate.py
 @@ -58,10 +58,10 @@

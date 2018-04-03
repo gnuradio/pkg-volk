@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Vector Optimized Library of Kernels</title>
+    <link href="http://libvolk.org/theme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://libvolk.org/theme/css/material.css" rel="stylesheet">
+    <link href="http://libvolk.org/theme/css/font-awesome.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="http://libvolk.org/theme/assets/volk.png" />
+</head>
+<body>
+<div class="header-panel shadow-z-2 row" style="background-color:#e0f7fa;">
+    <div class="row-fluid">
+    <div class="col-xs-3" style="display: inline-block; vertical-align: middle; float: none;">
+        <a href="http://libvolk.org">
+        <img src="http://libvolk.org/theme/assets/volk_wolves_only.png" alt="VOLK logo" class="center-block" height="64">
+        </a>
+    </div><!--
+    --><div class="col-xs-9" style="display: inline-block; vertical-align: middle; float: none;">
+    <div class="text-center" style="height: 64; vertical-align: bottom;">
+        <h2>
+        <a href="http://libvolk.org">
+            Vector-Optimized Library of Kernels
+        </a> :
+Release v1.4
+        </h2>
+    </div>
+    </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-sm-3 menu">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>Information</h4>
+            </div>
+            <div class="panel-body">
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="http://libvolk.org/about.html">About</a></li>
+                <li><a href="http://libvolk.org/category/news.html">News</a></li>
+                <li><a href="http://libvolk.org/platforms.html">Supported Platforms</a></li>
+                <li><a href="http://libvolk.org/comparisons.html">Related Libraries</a></li>
+            </ul>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>Source Code</h4>
+            </div>
+            <div class="panel-body">
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="releases.html">Releases</a></li>
+                <li><a href="https://github.com/gnuradio/volk">Code Repository</a></li>
+                <li><a href="doxygen/index.html">Documentation</a></li>
+            </ul>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h4>Community</h4>
+            </div>
+            <div class="panel-body">
+            <ul class="nav nav-pills nav-stacked">
+                <li><a href="lists.html">Mailing List and IRC</a></li>
+                <li><a href="bugs.html">Bug Reports</a></li>
+                <li><a href="contributing.html">Contributing</a></li>
+            </ul>
+            </div>
+        </div>
+
+        </nav>
+
+        <div id="content" class="col-sm-9">
+<div class="pages col-sm-12">
+  <div class="well page active">
+    <h1>VOLK v1.4</h1>
+<p>A lot of really good changes came to VOLK with v1.4. It wouldn't have been possible without the following contributors:</p>
+<h2>Contributors</h2>
+<ul>
+<li>Andrej Rode <a href="mailto:mail@andrejro.de">mail@andrejro.de</a></li>
+<li>Bernhard M. Wiedemann <a href="mailto:bwiedemann@suse.de">bwiedemann@suse.de</a></li>
+<li>Carles Fernandez <a href="mailto:carles.fernandez@gmail.com">carles.fernandez@gmail.com</a></li>
+<li>Christoph Mayer <a href="mailto:Christoph.Mayer@cern.ch">Christoph.Mayer@cern.ch</a></li>
+<li>Damian Miralles <a href="mailto:damian.miralles@colorado.edu">damian.miralles@colorado.edu</a></li>
+<li>Douglas Anderson <a href="mailto:douglas.j.anderson@gmail.com">douglas.j.anderson@gmail.com</a></li>
+<li>hcab14 <a href="mailto:hcab14@gmail.com">hcab14@gmail.com</a></li>
+<li>Johannes Demel <a href="mailto:ufcsy@student.kit.edu">ufcsy@student.kit.edu</a></li>
+<li>Josh Blum <a href="mailto:josh@joshknows.com">josh@joshknows.com</a></li>
+<li>luz.paz <a href="mailto:luzpaz@users.noreply.github.com">luzpaz@users.noreply.github.com</a></li>
+<li>Magnus Lundmark <a href="mailto:magnus@skysense.io">magnus@skysense.io</a></li>
+<li>Marcus Müller <a href="mailto:marcus@hostalia.de">marcus@hostalia.de</a></li>
+<li>Michael Dickens <a href="mailto:michael.dickens@ettus.com">michael.dickens@ettus.com</a></li>
+<li>Nathan West <a href="mailto:nwest@deepsig.io">nwest@deepsig.io</a></li>
+<li>Nick Foster <a href="mailto:bistromath@gmail.com">bistromath@gmail.com</a></li>
+<li>Paul Cercueil <a href="mailto:paul.cercueil@analog.com">paul.cercueil@analog.com</a></li>
+<li>Stefan Wunsch <a href="mailto:stefan.wunsch@student.kit.edu">stefan.wunsch@student.kit.edu</a></li>
+</ul>
+<h2>Changes</h2>
+<p>Generally, there are a lot of kernel changes and some minor dependency changes. I'm trying to remove boost as a dependency and we've introduced mako templates rather than the old Cheetah-templates to keep in line with GNU Radio. There are also several new CI files that support appveyor, travis-ci, and gitlab. Right now all pull requests must pass travis-ci.</p>
+<h3>Kernels</h3>
+<p>The easiest way to show these changes is simply with two lists:</p>
+<p>New kernels</p>
+<ul>
+<li><code>32 bit reversal</code></li>
+<li><code>32f_s32f_s32f_mod_range_32f</code></li>
+<li>double precision (<code>64f_XXX</code>...)<ul>
+<li>multiply</li>
+<li>add</li>
+</ul>
+</li>
+<li><code>32f_64f_multiply_64f</code></li>
+<li><code>add 32f_64f_add_64f</code></li>
+<li><code>32fc_x2_add_32fc</code></li>
+</ul>
+<p>New proto-kernels by architecture</p>
+<p>AVX(2):</p>
+<p>Note that in some cases an unaligned version was added where an aligned version already existed</p>
+<ul>
+<li><code>volk_64f_convert_32f</code></li>
+<li><code>volk_64f_x2_max_64f</code></li>
+<li><code>volk_64f_x2_min_64f</code></li>
+<li><code>volk_32f_x2_add_32f</code></li>
+<li><code>32i_x2_and_32i</code></li>
+<li><code>32i_x2_or_32i</code></li>
+<li>conjugate dot products</li>
+<li><code>32f_accumulator_32f</code></li>
+<li><code>stddev_and_mean</code></li>
+<li><code>volk_32f_*</code> kernels</li>
+<li><code>32f_x2_divide_32f</code></li>
+<li><code>32f_x2_dot_prod_16i</code></li>
+<li><code>volk_32f_s32f_normalize</code></li>
+<li><code>volk_32f_s32f_stddev_32f</code></li>
+<li><code>volk_32f_sqrt_32f</code></li>
+<li><code>volk_32f_x2_max_32f</code></li>
+<li><code>volk_32f_x2_min_32f</code></li>
+<li><code>32f_x2_s32f_interleave_16ic</code></li>
+<li><code>32f_x2_subtract_32f</code></li>
+<li><code>32f_x2_s32f_interleave_16ic</code></li>
+<li><code>32f_x2_subtract_32f</code></li>
+<li><code>32f_x2_subtract_32f</code></li>
+<li><code>32f_x2_s32f_interleave_16ic</code></li>
+<li><code>volk_8ic_s32f_deinterleave_*</code></li>
+<li><code>32f_log2_32f</code></li>
+<li><code>volk_32f_s32f_convert_8i</code> and <code>16i</code></li>
+</ul>
+<p>NEON:</p>
+<ul>
+<li>move all neonasm to aligned protokernels</li>
+<li>added ARM version of volk_32u_reverse_32u (RBIT)</li>
+<li><code>volk_32fc_x2_divide_32fc</code></li>
+<li><code>volk_32fc_32f_add_32fc</code></li>
+<li><code>volk_32f_x2_divide_32f</code></li>
+<li><code>volk_8i_s32f_convert_32f</code></li>
+</ul>
+<p>Additionally, there are new protokernel intrinsics available for use in writing new kernels.</p>
+<p>Then, we also had some general kernel and protokernel bug fixes and using proper type-named C functions which happened to increase performance:</p>
+<p>The polarbutterfly went through some heavy refactoring and bug fixes as well as adding an AVX version.
+Fix GH issue #139 for <code>32fc_index_max_*</code> kernels resulting in a slightly wrong index being returned.
+Fix bug 106 (volk_64u_popcnt bug in generic implementation)</p>
+<h3>CI and Builds</h3>
+<p>As previously mentioned there are appveyor, travis-ci, and gitlab CI files available. There is a travis-ci instance checking all pull requests at https://travis-ci.org/gnuradio/volk/ and a gitlab mirror running CI checks at https://gitlab.com/n-west/volk.</p>
+<p>While working on these CI files the kernel tests were split in to individual ctest targets so that each kernel is its own test rather than running them as a monolithic binary. This allows parallel testing, but mostly enables easier diagnostics when a test fails. The readme is now a markdown file that renders well on GitHub and Gitlab along with the travis-ci status as a badge.</p>
+<p>Within this release two tools were run that reorganized includes and fixed a bunch of typos within code.</p>
+<p>As part of the attempt to build VOLK without boost a bunch of app and build utilities were written to replace boost-code. This shouldnt be visible to the user, but will hopefully make future builds easier and smaller with fewer build and run-time dependencies. Builds with python 2.7 and 3 should work-- although six is required for python2.7 support.</p>
+<p>Some build changes make it easier to do a relocatable build and order all files before building so that building from a particular revision (from now on) should be reproducible across machines building the same architectures. To use a relocatable install use the VOLK_PREFIX environment variable. This should support snaps (Canonical packaging environment).</p>
+<h3>Modtool</h3>
+<div class="highlight"><pre><span class="n">modtool</span><span class="o">:</span> <span class="n">update</span> <span class="n">the</span> <span class="n">cmake</span> <span class="n">find</span> <span class="n">module</span> <span class="k">for</span> <span class="n">volk</span> <span class="n">mods</span>
+<span class="n">modtool</span><span class="o">:</span> <span class="n">deconflict</span> <span class="n">module</span> <span class="k">include</span> <span class="n">guards</span> <span class="n">from</span> <span class="n">main</span> <span class="n">volk</span>
+</pre></div>
+  </div>
+</div>
+
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+<footer class="footer text-center">
+Website content copyright &copy; 2015 Nathan West.<br>
+This page is licensed under a <a href="https://creativecommons.org/licenses/by-nd/4.0/legalcode">Creative Commons Attribution-NoDerivs 4.0 International</a><br>
+The VOLK logo copyright &copy; Marcus Müller.
+</footer>
+</div>
+
+<!-- jQuery -->
+<script src="theme/js/jquery.min.js"></script>
+
+<!-- Bootstrap js -->
+<script src="theme/js/bootstrap.min.js"></script>
+
+<!-- Material and ripple js -->
+<script src="theme/js/material.min.js"></script>
+<script>
+            $(document).ready(function() {
+                $.material.init();
+            });
+</script>
+
+</body>
+</html>
