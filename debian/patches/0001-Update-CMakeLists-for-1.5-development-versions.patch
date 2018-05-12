@@ -1,0 +1,25 @@
+From da56e316ca095a09b53ce308a79b522bcb4a6504 Mon Sep 17 00:00:00 2001
+From: Nathan West <nwest@deepsig.io>
+Date: Tue, 27 Mar 2018 12:50:12 -0400
+Subject: [PATCH 1/9] Update CMakeLists for 1.5 development versions
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a02ae80..d0f076c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -45,7 +45,7 @@ message(STATUS "Build type set to ${CMAKE_BUILD_TYPE}.")
+ 
+ set(VERSION_INFO_MAJOR_VERSION 1)
+ set(VERSION_INFO_MINOR_VERSION 4)
+-set(VERSION_INFO_MAINT_VERSION 0)
++set(VERSION_INFO_MAINT_VERSION 1git)
+ include(VolkVersion) #setup version info
+ 
+ ########################################################################
+-- 
+2.11.0
+

@@ -1,3 +1,13 @@
+volk (1.4-3) unstable; urgency=medium
+
+  * update to v1.4-9-g297fefd
+    Added an AVX protokernel for volk_32fc_x2_32f_square_dist_scalar_mult_32f
+    fixed a buffer over-read and over-write in
+     volk_32fc_x2_s32f_square_dist_scalar_mult_32f_a_avx
+    Fix 32u_reverse_32u for ARM
+
+ -- A. Maitland Bottoms <bottoms@debian.org>  Sat, 12 May 2018 15:25:04 -0400
+
 volk (1.4-2) unstable; urgency=medium
 
   * Upload to unstable, needed by gnuradio (>= 3.7.12.0)

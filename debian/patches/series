@@ -1,3 +1,11 @@
+0002-Added-an-AVX-protokernel-for-volk_32fc_x2_32f_square.patch
+0003-extracted-variables-for-the-source-real-and-imaginar.patch
+0004-fixed-a-buffer-over-read-and-over-write-in-volk_32fc.patch
+0005-cmake-Fix-endif-to-match-if.patch
+0006-Add-sys-time.h-header-copied-from-gnuradio-to-fix-Wi.patch
+0007-Fix-compile-on-Windows-by-avoiding-min-max-macros-in.patch
+0008-Fix-add_test-for-Windows.patch
+0009-Fix-32u_reverse_32u-for-ARM.patch
 native-armv7-build-support
 make-acc-happy
 sort-cmake-glob-lists

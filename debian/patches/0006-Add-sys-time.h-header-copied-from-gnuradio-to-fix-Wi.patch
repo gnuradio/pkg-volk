@@ -1,0 +1,91 @@
+From 1b4604aa51c60c10dc4b1ac11b9d6d6ce5ced21e Mon Sep 17 00:00:00 2001
+From: Ryan Volz <rvolz@mit.edu>
+Date: Fri, 13 Apr 2018 16:37:23 -0400
+Subject: [PATCH 6/9] Add <sys/time.h> header (copied from gnuradio) to fix
+ Windows build.
+
+---
+ cmake/msvc/sys/time.h | 71 +++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 71 insertions(+)
+ create mode 100644 cmake/msvc/sys/time.h
+
+diff --git a/cmake/msvc/sys/time.h b/cmake/msvc/sys/time.h
+new file mode 100644
+index 0000000..dca0fdf
+--- /dev/null
++++ b/cmake/msvc/sys/time.h
+@@ -0,0 +1,71 @@
++#ifndef _MSC_VER // [
++#error "Use this header only with Microsoft Visual C++ compilers!"
++#endif // _MSC_VER ]
++
++#ifndef _MSC_SYS_TIME_H_
++#define _MSC_SYS_TIME_H_
++
++//http://social.msdn.microsoft.com/Forums/en/vcgeneral/thread/430449b3-f6dd-4e18-84de-eebd26a8d668
++#include < time.h >
++#include <windows.h> //I've omitted this line.
++#if defined(_MSC_VER) || defined(_MSC_EXTENSIONS)
++  #define DELTA_EPOCH_IN_MICROSECS  11644473600000000Ui64
++#else
++  #define DELTA_EPOCH_IN_MICROSECS  11644473600000000ULL
++#endif
++
++#if _MSC_VER < 1900
++struct timespec {
++
++time_t tv_sec; /* Seconds since 00:00:00 GMT, */
++
++/* 1 January 1970 */
++
++long tv_nsec; /* Additional nanoseconds since */
++
++/* tv_sec */
++
++};
++#endif
++
++struct timezone
++{
++  int  tz_minuteswest; /* minutes W of Greenwich */
++  int  tz_dsttime;     /* type of dst correction */
++};
++
++static inline int gettimeofday(struct timeval *tv, struct timezone *tz)
++{
++  FILETIME ft;
++  unsigned __int64 tmpres = 0;
++  static int tzflag;
++
++  if (NULL != tv)
++  {
++    GetSystemTimeAsFileTime(&ft);
++
++    tmpres |= ft.dwHighDateTime;
++    tmpres <<= 32;
++    tmpres |= ft.dwLowDateTime;
++
++    /*converting file time to unix epoch*/
++    tmpres -= DELTA_EPOCH_IN_MICROSECS;
++    tv->tv_sec = (long)(tmpres / 1000000UL);
++    tv->tv_usec = (long)(tmpres % 1000000UL);
++  }
++
++  if (NULL != tz)
++  {
++    if (!tzflag)
++    {
++      _tzset();
++      tzflag++;
++    }
++    tz->tz_minuteswest = _timezone / 60;
++    tz->tz_dsttime = _daylight;
++  }
++
++  return 0;
++}
++
++#endif //_MSC_SYS_TIME_H_
+-- 
+2.11.0
+

@@ -1,0 +1,33 @@
+From 446c79567fd7b39b9f0fabc72bcb952df8778018 Mon Sep 17 00:00:00 2001
+From: "Brandon P. Enochs" <brandon.enochs@nrl.navy.mil>
+Date: Tue, 3 Apr 2018 16:29:40 -0400
+Subject: [PATCH 3/9] extracted variables for the source real and imaginary
+ parts in volk_32fc_x2_s32f_square_dist_scalar_mult_32f_a_avx.
+
+---
+ kernels/volk/volk_32fc_x2_s32f_square_dist_scalar_mult_32f.h | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
+
+diff --git a/kernels/volk/volk_32fc_x2_s32f_square_dist_scalar_mult_32f.h b/kernels/volk/volk_32fc_x2_s32f_square_dist_scalar_mult_32f.h
+index 6180337..0a3f7ca 100644
+--- a/kernels/volk/volk_32fc_x2_s32f_square_dist_scalar_mult_32f.h
++++ b/kernels/volk/volk_32fc_x2_s32f_square_dist_scalar_mult_32f.h
+@@ -97,12 +97,9 @@ volk_32fc_x2_s32f_square_dist_scalar_mult_32f_a_avx(
+ 
+   for (; i < avx_work_size; i += work_size) {
+     lv_32fc_t src = *src0;
+-    __m256 source = _mm256_setr_ps(
+-            lv_creal(src), lv_cimag(src),
+-            lv_creal(src), lv_cimag(src),
+-            lv_creal(src), lv_cimag(src),
+-            lv_creal(src), lv_cimag(src)
+-    );
++    float src_real = lv_creal(src);
++    float src_imag = lv_cimag(src);
++    __m256 source = _mm256_setr_ps(src_real, src_imag, src_real, src_imag, src_real, src_imag, src_real, src_imag);
+     __m256 points_low = _mm256_load_ps((const float *) points);
+     __m256 points_high = _mm256_load_ps((const float *) (points + work_size / 2));
+     __m256 difference_low = _mm256_sub_ps(source, points_low);
+-- 
+2.11.0
+

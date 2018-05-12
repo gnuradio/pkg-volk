@@ -1,0 +1,23 @@
+From 21d86728946b915bfe2f177dfa97fb2c94a5957a Mon Sep 17 00:00:00 2001
+From: Michael Dickens <michael.dickens@ettus.com>
+Date: Thu, 5 Apr 2018 14:02:57 -0400
+Subject: [PATCH 5/9] cmake: Fix 'endif' to match 'if'
+
+---
+ cmake/Modules/VolkConfigVersion.cmake.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/Modules/VolkConfigVersion.cmake.in b/cmake/Modules/VolkConfigVersion.cmake.in
+index 265daeb..988336d 100644
+--- a/cmake/Modules/VolkConfigVersion.cmake.in
++++ b/cmake/Modules/VolkConfigVersion.cmake.in
+@@ -30,5 +30,5 @@ if(${PACKAGE_FIND_VERSION_MAJOR} EQUAL ${MAJOR_VERSION})
+       set(PACKAGE_VERSION_EXACT 1)    # exact match for API version
+       set(PACKAGE_VERSION_COMPATIBLE 1)  # compat for minor/patch version
+     endif(NOT ${PACKAGE_FIND_VERSION_PATCH} GREATER ${MINOR_VERSION})
+-  endif(${PACKAGE_FIND_VERSION_MINOR} EQUAL ${API_COMPAT})
++  endif(${PACKAGE_FIND_VERSION_MINOR} EQUAL ${MINOR_VERSION})
+ endif(${PACKAGE_FIND_VERSION_MAJOR} EQUAL ${MAJOR_VERSION})
+-- 
+2.11.0
+

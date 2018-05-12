@@ -1,0 +1,29 @@
+From 8eef886bb94b927364314877164600701678e864 Mon Sep 17 00:00:00 2001
+From: Ryan Volz <rvolz@mit.edu>
+Date: Tue, 17 Apr 2018 10:23:32 -0400
+Subject: [PATCH 7/9] Fix compile on Windows by avoiding min/max macros in
+ windows.h.
+
+---
+ cmake/msvc/sys/time.h | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/cmake/msvc/sys/time.h b/cmake/msvc/sys/time.h
+index dca0fdf..aa0f5dc 100644
+--- a/cmake/msvc/sys/time.h
++++ b/cmake/msvc/sys/time.h
+@@ -5,6 +5,11 @@
+ #ifndef _MSC_SYS_TIME_H_
+ #define _MSC_SYS_TIME_H_
+ 
++// prevent windows.h from clobbering min and max functions with macros
++#ifndef NOMINMAX
++#define NOMINMAX
++#endif
++
+ //http://social.msdn.microsoft.com/Forums/en/vcgeneral/thread/430449b3-f6dd-4e18-84de-eebd26a8d668
+ #include < time.h >
+ #include <windows.h> //I've omitted this line.
+-- 
+2.11.0
+
